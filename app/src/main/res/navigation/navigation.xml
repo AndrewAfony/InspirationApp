@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/navigation.xml">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation.xml"
+    app:startDestination="@id/randomQuoteFragment">
 
+    <fragment
+        android:id="@+id/randomQuoteFragment"
+        android:name="com.myapp.inspirationapp.presentation.RandomQuoteFragment"
+        android:label="fragment_random_quote"
+        tools:layout="@layout/fragment_random_quote" />
+    <fragment
+        android:id="@+id/quotesListFragment"
+        android:name="com.myapp.inspirationapp.presentation.QuotesListFragment"
+        android:label="fragment_quotes_list"
+        tools:layout="@layout/fragment_quotes_list" />
+    <fragment
+        android:id="@+id/favoriteQuotesFragment"
+        android:name="com.myapp.inspirationapp.presentation.FavoriteQuotesFragment"
+        android:label="fragment_favorite_quotes"
+        tools:layout="@layout/fragment_favorite_quotes" />
+    <fragment
+        android:id="@+id/searchQuoteFragment"
+        android:name="com.myapp.inspirationapp.presentation.SearchQuoteFragment"
+        android:label="fragment_search_quote"
+        tools:layout="@layout/fragment_search_quote" />
 </navigation>

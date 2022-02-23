@@ -1,4 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/randomQuoteFragment"
+        android:title="@string/random_quote"
+        android:icon="@drawable/ic_left_quote_sketch" />
+
+    <item
+        android:id="@+id/quotesListFragment"
+        android:title="@string/quotes"
+        android:icon="@drawable/ic_list_sketch"/>
+
+    <item
+        android:id="@+id/searchQuoteFragment"
+        android:title="@string/search"
+        android:icon="@drawable/ic_search_sketch"/>
+
+    <item
+        android:id="@+id/favoriteQuotesFragment"
+        android:title="@string/favorite_quotes"
+        android:icon="@drawable/ic_heart_sketch"/>
 
 </menu>

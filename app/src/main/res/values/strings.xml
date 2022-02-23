@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">InspirationApp</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="random_quote">Random quote</string>
+    <string name="quotes">Quotes</string>
+    <string name="search">Search</string>
+    <string name="favorite_quotes">Favorite quotes</string>
 </resources>
