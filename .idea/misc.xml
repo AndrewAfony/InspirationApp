@@ -4,7 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/AndroidStudioProjects/InspirationApp/app/src/main/res/drawable/ic_heart_sketch.xml" value="0.125" />
-        <entry key="..\:/AndroidStudioProjects/InspirationApp/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/AndroidStudioProjects/InspirationApp/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/InspirationApp/app/src/main/res/layout/fragment_favorite_quotes.xml" value="0.30364583333333334" />
         <entry key="..\:/AndroidStudioProjects/InspirationApp/app/src/main/res/layout/fragment_quotes_list.xml" value="0.30364583333333334" />
         <entry key="..\:/AndroidStudioProjects/InspirationApp/app/src/main/res/layout/fragment_random_quote.xml" value="0.30364583333333334" />

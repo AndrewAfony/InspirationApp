@@ -3,6 +3,7 @@
     package="com.myapp.inspirationapp">
 
     <application
+        android:name=".InspirationApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
