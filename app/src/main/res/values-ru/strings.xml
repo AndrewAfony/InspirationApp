@@ -5,4 +5,8 @@
     <string name="quotes">Цитаты</string>
     <string name="search">Поиск</string>
     <string name="favorite_quotes">Любимые цитаты</string>
+    <string name="business_chip">Business</string>
+    <string name="education_chip">Education</string>
+    <string name="faith_chip">Faith</string>
+    <string name="famous_chip">Famous</string>
 </resources>

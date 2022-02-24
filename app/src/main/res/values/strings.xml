@@ -5,4 +5,24 @@
     <string name="quotes">Quotes</string>
     <string name="search">Search</string>
     <string name="favorite_quotes">Favorite quotes</string>
+    <string name="business_chip">Business</string>
+    <string name="education_chip">Education</string>
+    <string name="faith_chip">Faith</string>
+    <string name="famous_chip">Famous</string>
+    <string name="friendship_chip">Friendship</string>
+    <string name="future_chip">Future</string>
+    <string name="happiness_chip">Happiness</string>
+    <string name="history_chip">History</string>
+    <string name="inspirational_chip">Inspirational</string>
+    <string name="life_chip">Life</string>
+    <string name="literature_chip">Literature</string>
+    <string name="love_chip">Love</string>
+    <string name="nature_chip">Nature</string>
+    <string name="politics_chip">Politics</string>
+    <string name="proverb_chip">Proverb</string>
+    <string name="religion_chip">Religion</string>
+    <string name="science_chip">Science</string>
+    <string name="success_chip">Success</string>
+    <string name="technology_chip">Technology</string>
+    <string name="wisdom_chip">Wisdom</string>
 </resources>
