@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name" translatable="false">InspirationApp</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="random_quote">Random quote</string>
+    <string name="random_quote">Quote</string>
     <string name="quotes">Quotes</string>
     <string name="search">Search</string>
-    <string name="favorite_quotes">Favorite quotes</string>
+    <string name="favorite_quotes">Favorites</string>
     <string name="business_chip">Business</string>
     <string name="education_chip">Education</string>
     <string name="faith_chip">Faith</string>
