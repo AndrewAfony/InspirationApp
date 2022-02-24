@@ -5,8 +5,24 @@
     <string name="quotes">Цитаты</string>
     <string name="search">Поиск</string>
     <string name="favorite_quotes">Любимые цитаты</string>
-    <string name="business_chip">Business</string>
-    <string name="education_chip">Education</string>
+    <string name="business_chip">Бизнес</string>
+    <string name="education_chip">Образование</string>
     <string name="faith_chip">Faith</string>
     <string name="famous_chip">Famous</string>
+    <string name="friendship_chip">Дружба</string>
+    <string name="future_chip">Будущее</string>
+    <string name="happiness_chip">Счастье</string>
+    <string name="history_chip">История</string>
+    <string name="inspirational_chip">Inspirational</string>
+    <string name="life_chip">Жизнь</string>
+    <string name="literature_chip">Литература</string>
+    <string name="love_chip">Любовь</string>
+    <string name="nature_chip">Природа</string>
+    <string name="politics_chip">Политика</string>
+    <string name="proverb_chip">Proverb</string>
+    <string name="religion_chip">Религия</string>
+    <string name="science_chip">Наука</string>
+    <string name="success_chip">Успех</string>
+    <string name="technology_chip">Технологии</string>
+    <string name="wisdom_chip">Мудрость</string>
 </resources>
