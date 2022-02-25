@@ -6,6 +6,9 @@ plugins {
     id "dagger.hilt.android.plugin"
 }
 
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(rootProject.file("keystore.properties")))
+
 android {
     compileSdk 31
 
@@ -17,6 +20,8 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "String", "QUOTABLE_BASE_URL", keystoreProperties["QUOTABLE_BASE_URL"]
     }
 
     buildTypes {
