@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudioProjects/InspirationApp/app/src/main/res/drawable/bd_edittext.xml" value="0.3148717948717949" />
+        <entry key="..\:/AndroidStudioProjects/InspirationApp/app/src/main/res/drawable/bg_edittext_normal.xml" value="0.3148717948717949" />
+        <entry key="..\:/AndroidStudioProjects/InspirationApp/app/src/main/res/drawable/db_edittext_focused.xml" value="0.3148717948717949" />
         <entry key="..\:/AndroidStudioProjects/InspirationApp/app/src/main/res/drawable/ic_hand_drawn_arrow.xml" value="0.2916666666666667" />
         <entry key="..\:/AndroidStudioProjects/InspirationApp/app/src/main/res/drawable/ic_hand_drawn_heart.xml" value="0.2916666666666667" />
         <entry key="..\:/AndroidStudioProjects/InspirationApp/app/src/main/res/drawable/ic_heart_sketch.xml" value="0.125" />
@@ -13,7 +16,7 @@
         <entry key="..\:/AndroidStudioProjects/InspirationApp/app/src/main/res/layout/fragment_favorite_quotes.xml" value="0.30364583333333334" />
         <entry key="..\:/AndroidStudioProjects/InspirationApp/app/src/main/res/layout/fragment_quotes_list.xml" value="0.3333333333333333" />
         <entry key="..\:/AndroidStudioProjects/InspirationApp/app/src/main/res/layout/fragment_random_quote.xml" value="0.22" />
-        <entry key="..\:/AndroidStudioProjects/InspirationApp/app/src/main/res/layout/fragment_search_quote.xml" value="0.30364583333333334" />
+        <entry key="..\:/AndroidStudioProjects/InspirationApp/app/src/main/res/layout/fragment_search_quote.xml" value="0.3333333333333333" />
         <entry key="..\:/AndroidStudioProjects/InspirationApp/app/src/main/res/menu/bottom_menu.xml" value="0.298974358974359" />
       </map>
     </option>
