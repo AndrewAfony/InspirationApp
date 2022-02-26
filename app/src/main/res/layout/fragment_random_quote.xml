@@ -6,17 +6,47 @@
     android:layout_height="match_parent"
     tools:context=".presentation.RandomQuoteFragment">
 
+    <com.google.android.material.appbar.MaterialToolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_marginTop="8dp"
+        app:navigationIcon="@drawable/ic_menu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/random_quote"
+            android:textAppearance="@style/TextAppearance.AppCompat.SearchResult.Title"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:src="@drawable/ic_user_hand_drawn"
+            android:backgroundTint="@android:color/transparent"
+            android:contentDescription="@string/account_button" />
+
+
+
+    </com.google.android.material.appbar.MaterialToolbar>
+
     <ImageView
+        android:id="@+id/bg_quote"
         android:layout_width="0dp"
         android:layout_height="300dp"
         android:src="@drawable/quote"
-        app:layout_constraintBottom_toBottomOf="@+id/textView2"
+        app:layout_constraintBottom_toBottomOf="@+id/author"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView" />
+        app:layout_constraintTop_toTopOf="@+id/quote" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/quote"
         style="@style/quoteText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -32,7 +62,7 @@
         tools:text="Nam at nisi sit amet mi lobortis vulputate. Suspendisse condimentum consequat risus non varius." />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/author"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -40,26 +70,26 @@
         android:textColor="@color/gray"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="@+id/quote"
+        app:layout_constraintStart_toStartOf="@+id/quote"
+        app:layout_constraintTop_toBottomOf="@+id/quote"
         tools:text="- F.T.Burnam" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/like_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
         android:src="@drawable/ic_hand_drawn_heart"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton"
+        app:layout_constraintEnd_toStartOf="@+id/share_button"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/quote"
         app:tint="@color/red" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/share_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
@@ -67,8 +97,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageButton2"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintStart_toEndOf="@+id/like_button"
+        app:layout_constraintTop_toBottomOf="@+id/quote"
         app:tint="@color/blue"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

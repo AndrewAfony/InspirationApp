@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/randomQuoteFragment"
-        android:title="@string/random_quote"
+        android:title="@string/quote"
         android:icon="@drawable/ic_left_quote_sketch" />
 
     <item
