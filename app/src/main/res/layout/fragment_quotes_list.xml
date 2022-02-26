@@ -6,16 +6,45 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".presentation.QuotesListFragment">
 
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/materialToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_menu">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/quotes"
+            android:textAppearance="@style/TextAppearance.AppCompat.SearchResult.Title"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:backgroundTint="@android:color/transparent"
+            android:contentDescription="@string/account_button"
+            android:src="@drawable/ic_user_hand_drawn" />
+
+    </com.google.android.material.appbar.MaterialToolbar>
+
     <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:scrollbars="none"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/materialToolbar">
 
         <com.google.android.material.chip.ChipGroup
             android:layout_width="wrap_content"
@@ -41,132 +70,144 @@
                 style="@style/Widget.MaterialComponents.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="@style/chipText"
-                android:text="@string/faith_chip" />
+                android:text="@string/faith_chip"
+                android:textAppearance="@style/chipText" />
 
             <com.google.android.material.chip.Chip
                 style="@style/Widget.MaterialComponents.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="@style/chipText"
-                android:text="@string/famous_chip" />
+                android:text="@string/famous_chip"
+                android:textAppearance="@style/chipText" />
 
             <com.google.android.material.chip.Chip
                 style="@style/Widget.MaterialComponents.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="@style/chipText"
-                android:text="@string/friendship_chip" />
+                android:text="@string/friendship_chip"
+                android:textAppearance="@style/chipText" />
 
             <com.google.android.material.chip.Chip
                 style="@style/Widget.MaterialComponents.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="@style/chipText"
-                android:text="@string/future_chip" />
+                android:text="@string/future_chip"
+                android:textAppearance="@style/chipText" />
 
             <com.google.android.material.chip.Chip
                 style="@style/Widget.MaterialComponents.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="@style/chipText"
-                android:text="@string/happiness_chip" />
+                android:text="@string/happiness_chip"
+                android:textAppearance="@style/chipText" />
 
             <com.google.android.material.chip.Chip
                 style="@style/Widget.MaterialComponents.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="@style/chipText"
-                android:text="@string/history_chip" />
+                android:text="@string/history_chip"
+                android:textAppearance="@style/chipText" />
 
             <com.google.android.material.chip.Chip
                 style="@style/Widget.MaterialComponents.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="@style/chipText"
-                android:text="@string/inspirational_chip" />
+                android:text="@string/inspirational_chip"
+                android:textAppearance="@style/chipText" />
 
             <com.google.android.material.chip.Chip
                 style="@style/Widget.MaterialComponents.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="@style/chipText"
-                android:text="@string/life_chip" />
+                android:text="@string/life_chip"
+                android:textAppearance="@style/chipText" />
 
             <com.google.android.material.chip.Chip
                 style="@style/Widget.MaterialComponents.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="@style/chipText"
-                android:text="@string/literature_chip" />
+                android:text="@string/literature_chip"
+                android:textAppearance="@style/chipText" />
 
             <com.google.android.material.chip.Chip
                 style="@style/Widget.MaterialComponents.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="@style/chipText"
-                android:text="@string/love_chip" />
+                android:text="@string/love_chip"
+                android:textAppearance="@style/chipText" />
 
             <com.google.android.material.chip.Chip
                 style="@style/Widget.MaterialComponents.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="@style/chipText"
-                android:text="@string/nature_chip" />
+                android:text="@string/nature_chip"
+                android:textAppearance="@style/chipText" />
 
             <com.google.android.material.chip.Chip
                 style="@style/Widget.MaterialComponents.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="@style/chipText"
-                android:text="@string/politics_chip" />
+                android:text="@string/politics_chip"
+                android:textAppearance="@style/chipText" />
 
             <com.google.android.material.chip.Chip
                 style="@style/Widget.MaterialComponents.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="@style/chipText"
-                android:text="@string/proverb_chip" />
+                android:text="@string/proverb_chip"
+                android:textAppearance="@style/chipText" />
 
             <com.google.android.material.chip.Chip
                 style="@style/Widget.MaterialComponents.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="@style/chipText"
-                android:text="@string/religion_chip" />
+                android:text="@string/religion_chip"
+                android:textAppearance="@style/chipText" />
 
             <com.google.android.material.chip.Chip
                 style="@style/Widget.MaterialComponents.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="@style/chipText"
-                android:text="@string/science_chip" />
+                android:text="@string/science_chip"
+                android:textAppearance="@style/chipText" />
 
             <com.google.android.material.chip.Chip
                 style="@style/Widget.MaterialComponents.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="@style/chipText"
-                android:text="@string/success_chip" />
+                android:text="@string/success_chip"
+                android:textAppearance="@style/chipText" />
 
             <com.google.android.material.chip.Chip
                 style="@style/Widget.MaterialComponents.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="@style/chipText"
-                android:text="@string/technology_chip" />
+                android:text="@string/technology_chip"
+                android:textAppearance="@style/chipText" />
 
             <com.google.android.material.chip.Chip
                 style="@style/Widget.MaterialComponents.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="@style/chipText"
-                android:text="@string/wisdom_chip" />
+                android:text="@string/wisdom_chip"
+                android:textAppearance="@style/chipText" />
 
         </com.google.android.material.chip.ChipGroup>
 
     </HorizontalScrollView>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_list_quotes"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

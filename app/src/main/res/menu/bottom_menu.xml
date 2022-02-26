@@ -17,7 +17,7 @@
 
     <item
         android:id="@+id/favoriteQuotesFragment"
-        android:title="@string/favorite_quotes"
+        android:title="@string/favorites"
         android:icon="@drawable/ic_heart_sketch"/>
 
 </menu>

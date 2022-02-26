@@ -31,8 +31,6 @@
             android:backgroundTint="@android:color/transparent"
             android:contentDescription="@string/account_button" />
 
-
-
     </com.google.android.material.appbar.MaterialToolbar>
 
     <ImageView

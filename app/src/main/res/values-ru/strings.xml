@@ -4,7 +4,7 @@
     <string name="quote">Случайная цитата</string>
     <string name="quotes">Цитаты</string>
     <string name="search">Поиск</string>
-    <string name="favorite_quotes">Любимые цитаты</string>
+    <string name="favorites">Любимые цитаты</string>
     <string name="business_chip">Бизнес</string>
     <string name="education_chip">Образование</string>
     <string name="faith_chip">Faith</string>
@@ -27,4 +27,6 @@
     <string name="wisdom_chip">Мудрость</string>
     <string name="account_button">Account button</string>
     <string name="random_quote">Random quote</string>
+    <string name="enter_quote_hint">Enter quote</string>
+    <string name="favorite_quotes">Favorite quotes</string>
 </resources>
