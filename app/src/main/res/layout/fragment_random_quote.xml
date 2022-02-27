@@ -20,7 +20,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/random_quote"
-            android:textAppearance="@style/TextAppearance.AppCompat.SearchResult.Title"
+            android:fontFamily="@font/architects"
+            android:letterSpacing="0.2"
+            android:textSize="16sp"
+            android:textColor="@color/black"
             android:textStyle="bold" />
 
         <ImageButton
@@ -37,6 +40,8 @@
         android:id="@+id/bg_quote"
         android:layout_width="0dp"
         android:layout_height="300dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:src="@drawable/quote"
         app:layout_constraintBottom_toBottomOf="@+id/author"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,8 +53,8 @@
         style="@style/quoteText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginEnd="48dp"
         android:letterSpacing="0.05"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -81,9 +86,8 @@
         android:src="@drawable/ic_hand_drawn_heart"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/share_button"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/quote"
+        app:layout_constraintTop_toBottomOf="@+id/bg_quote"
         app:tint="@color/red" />
 
     <ImageButton
@@ -94,9 +98,8 @@
         android:src="@drawable/ic_hand_drawn_arrow"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/like_button"
-        app:layout_constraintTop_toBottomOf="@+id/quote"
-        app:tint="@color/blue"/>
+        app:layout_constraintTop_toBottomOf="@+id/bg_quote"
+        app:tint="@color/blue" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
