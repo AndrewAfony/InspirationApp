@@ -1,8 +1,10 @@
 package com.myapp.inspirationapp.presentation.random_quote_screen
 
+import android.view.View
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.google.android.material.snackbar.Snackbar
 import com.myapp.inspirationapp.domain.model.RandomQuote
 import com.myapp.inspirationapp.domain.repository.QuoteRepository
 import com.myapp.inspirationapp.utils.Resource
@@ -18,7 +20,7 @@ class RandomQuoteViewModel @Inject constructor(
     var randomQuote = MutableLiveData<RandomQuote>()
     private set
 
-    fun getQuote() {
+    fun getQuote(view: View) {
         viewModelScope.launch {
             val result = repository.getRandomQuote()
 
@@ -27,7 +29,7 @@ class RandomQuoteViewModel @Inject constructor(
                     randomQuote.postValue(result.data!!)
                 }
                 is Resource.Error -> {
-                    randomQuote.postValue(result.data!!)
+                    result.message?.let { Snackbar.make(view, it, Snackbar.LENGTH_LONG).show() }
                 }
                 else -> {}
             }
