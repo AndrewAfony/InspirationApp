@@ -1,4 +1,4 @@
-package com.myapp.inspirationapp.presentation
+package com.myapp.inspirationapp.presentation.random_quote_screen
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

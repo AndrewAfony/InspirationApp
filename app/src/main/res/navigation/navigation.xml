@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/randomQuoteFragment"
-        android:name="com.myapp.inspirationapp.presentation.RandomQuoteFragment"
+        android:name="com.myapp.inspirationapp.presentation.random_quote_screen.RandomQuoteFragment"
         android:label="fragment_random_quote"
         tools:layout="@layout/fragment_random_quote" />
     <fragment

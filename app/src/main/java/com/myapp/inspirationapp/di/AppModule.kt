@@ -2,6 +2,8 @@ package com.myapp.inspirationapp.di
 
 import com.myapp.inspirationapp.BuildConfig
 import com.myapp.inspirationapp.data.remote.QuotesApi
+import com.myapp.inspirationapp.data.repository.QuoteRepositoryImpl
+import com.myapp.inspirationapp.domain.repository.QuoteRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -22,5 +24,11 @@ object AppModule {
             .baseUrl(BuildConfig.QUOTABLE_BASE_URL)
             .build()
             .create(QuotesApi::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideQuoteRepository(api: QuotesApi): QuoteRepository {
+        return QuoteRepositoryImpl(api)
     }
 }
