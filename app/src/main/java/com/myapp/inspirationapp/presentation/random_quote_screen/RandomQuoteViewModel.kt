@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.android.material.snackbar.Snackbar
-import com.myapp.inspirationapp.domain.model.RandomQuote
+import com.myapp.inspirationapp.domain.model.Quote
 import com.myapp.inspirationapp.domain.repository.QuoteRepository
 import com.myapp.inspirationapp.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -17,7 +17,7 @@ class RandomQuoteViewModel @Inject constructor(
     private val repository: QuoteRepository
 ): ViewModel() {
 
-    var randomQuote = MutableLiveData<RandomQuote>()
+    var randomQuote = MutableLiveData<Quote>()
     private set
 
     fun getQuote(view: View) {

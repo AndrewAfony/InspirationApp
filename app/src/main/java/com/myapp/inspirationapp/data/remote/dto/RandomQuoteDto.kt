@@ -1,6 +1,6 @@
 package com.myapp.inspirationapp.data.remote.dto
 
-import com.myapp.inspirationapp.domain.model.RandomQuote
+import com.myapp.inspirationapp.domain.model.Quote
 
 data class RandomQuoteDto(
     val _id: String,
@@ -12,5 +12,5 @@ data class RandomQuoteDto(
     val length: Int,
     val tags: List<String>
 ) {
-    fun toRandomQuote(): RandomQuote = RandomQuote(author, content, tags)
+    fun toRandomQuote(): Quote = Quote(_id ,author, content, tags)
 }
