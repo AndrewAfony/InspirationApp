@@ -12,7 +12,7 @@
         tools:layout="@layout/fragment_random_quote" />
     <fragment
         android:id="@+id/quotesListFragment"
-        android:name="com.myapp.inspirationapp.presentation.QuotesListFragment"
+        android:name="com.myapp.inspirationapp.presentation.quotes_list_screen.QuotesListFragment"
         android:label="fragment_quotes_list"
         tools:layout="@layout/fragment_quotes_list" />
     <fragment
