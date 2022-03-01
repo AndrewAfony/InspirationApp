@@ -1,10 +1,14 @@
 package com.myapp.inspirationapp.adapters
 
+import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.chip.Chip
+import com.google.android.material.chip.ChipGroup
 import com.myapp.inspirationapp.databinding.FragmentRandomQuoteBinding
 import com.myapp.inspirationapp.databinding.ItemQuoteBinding
 import com.myapp.inspirationapp.domain.model.Quote
@@ -36,11 +40,19 @@ class QuotesAdapter: RecyclerView.Adapter<QuotesAdapter.QuoteViewHolder>() {
         holder.binding.apply {
             quoteText.text = quote.content
             author.text = quote.author
-
+            tags.addChip(this.root.context, quote.tags[0])
         }
     }
 
     override fun getItemCount(): Int {
         return differ.currentList.size
+    }
+}
+
+private fun ChipGroup.addChip(context: Context, label: String) {
+    Chip(context).apply {
+        id = View.generateViewId()
+        text = label
+        addView(this)
     }
 }
