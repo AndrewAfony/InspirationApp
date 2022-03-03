@@ -2,15 +2,21 @@ package com.myapp.inspirationapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.myapp.inspirationapp.databinding.ActivityMainBinding
+import com.myapp.inspirationapp.presentation.quotes_list_screen.QuotesViewModel
+import com.myapp.inspirationapp.presentation.random_quote_screen.RandomQuoteViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
+
+    private val randomQuoteViewModel: RandomQuoteViewModel by viewModels()
+    private val quotesList: QuotesViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,5 +27,8 @@ class MainActivity : AppCompatActivity() {
         val navController = navHost.navController
 
         binding.bottomNavigation.setupWithNavController(navController)
+
+        randomQuoteViewModel.getQuote()
+        quotesList.loadQuotes()
     }
 }

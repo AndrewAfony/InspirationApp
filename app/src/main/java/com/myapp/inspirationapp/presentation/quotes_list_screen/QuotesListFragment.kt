@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
 import android.widget.Toast
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -18,7 +19,6 @@ import com.myapp.inspirationapp.R
 import com.myapp.inspirationapp.adapters.QuotesAdapter
 import com.myapp.inspirationapp.databinding.FragmentQuotesListBinding
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -32,7 +32,7 @@ class QuotesListFragment : Fragment() {
 
     private lateinit var bottomNavigation: BottomNavigationView
 
-    private val viewModel: QuotesViewModel by viewModels()
+    private val viewModel: QuotesViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,14 +43,14 @@ class QuotesListFragment : Fragment() {
 
         bottomNavigation = activity?.findViewById(R.id.bottom_navigation)!!
 
-        viewModel.loadQuotes()
+//        viewModel.loadQuotes()
 
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupRecyclerView(view.context, view)
+        setupRecyclerView()
     }
 
     override fun onStart() {
@@ -71,9 +71,9 @@ class QuotesListFragment : Fragment() {
         _binding = null
     }
 
-    private fun setupRecyclerView(context: Context, view: View) {
+    private fun setupRecyclerView() {
         quotesAdapter = QuotesAdapter {
-            showMenu(it.context, it)
+            showPopupMenu(it.context, it)
         }
         binding.rvListQuotes.apply {
             adapter = quotesAdapter
@@ -95,7 +95,7 @@ class QuotesListFragment : Fragment() {
 
     }
 
-    private fun showMenu(context: Context, view: View) {
+    private fun showPopupMenu(context: Context, view: View) {
 
         PopupMenu(context, view).apply {
 
@@ -122,9 +122,4 @@ class QuotesListFragment : Fragment() {
         }
 
     }
-
-    private fun showToast(text: String, context: Context) {
-        Toast.makeText(context, text, Toast.LENGTH_SHORT).show()
-    }
-
 }

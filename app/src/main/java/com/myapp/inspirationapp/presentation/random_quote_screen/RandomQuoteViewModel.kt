@@ -20,7 +20,7 @@ class RandomQuoteViewModel @Inject constructor(
     var randomQuote = MutableLiveData<Quote>()
     private set
 
-    fun getQuote(view: View) {
+    fun getQuote() {
         viewModelScope.launch {
             val result = repository.getRandomQuote()
 
@@ -29,7 +29,7 @@ class RandomQuoteViewModel @Inject constructor(
                     randomQuote.postValue(result.data!!)
                 }
                 is Resource.Error -> {
-                    result.message?.let { Snackbar.make(view, it, Snackbar.LENGTH_LONG).show() }
+//                    result.message?.let { Snackbar.make(view, it, Snackbar.LENGTH_LONG).show() }
                 }
                 else -> {}
             }
