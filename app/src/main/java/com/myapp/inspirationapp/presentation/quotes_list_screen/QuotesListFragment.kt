@@ -1,10 +1,14 @@
 package com.myapp.inspirationapp.presentation.quotes_list_screen
 
+import android.content.Context
+import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.PopupMenu
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -38,11 +42,15 @@ class QuotesListFragment : Fragment() {
         _binding = FragmentQuotesListBinding.inflate(inflater, container, false)
 
         bottomNavigation = activity?.findViewById(R.id.bottom_navigation)!!
-        setupRecyclerView()
 
         viewModel.loadQuotes()
 
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupRecyclerView(view.context, view)
     }
 
     override fun onStart() {
@@ -63,8 +71,10 @@ class QuotesListFragment : Fragment() {
         _binding = null
     }
 
-    private fun setupRecyclerView() {
-        quotesAdapter = QuotesAdapter()
+    private fun setupRecyclerView(context: Context, view: View) {
+        quotesAdapter = QuotesAdapter {
+            showMenu(it.context, it)
+        }
         binding.rvListQuotes.apply {
             adapter = quotesAdapter
             layoutManager = LinearLayoutManager(activity)
@@ -83,9 +93,38 @@ class QuotesListFragment : Fragment() {
             }
         }
 
-        override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
-            super.onScrollStateChanged(recyclerView, newState)
+    }
+
+    private fun showMenu(context: Context, view: View) {
+
+        PopupMenu(context, view).apply {
+
+            setOnMenuItemClickListener {
+                return@setOnMenuItemClickListener when (it.itemId) {
+                    R.id.save_to_favorite -> {
+                        Toast.makeText(context, "Saved", Toast.LENGTH_SHORT).show()
+                        true
+                    }
+                    R.id.share -> {
+                        true
+                    }
+                    else -> false
+                }
+            }
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                setForceShowIcon(true)
+            }
+
+            inflate(R.menu.quote_menu)
+            show()
+
         }
+
+    }
+
+    private fun showToast(text: String, context: Context) {
+        Toast.makeText(context, text, Toast.LENGTH_SHORT).show()
     }
 
 }
