@@ -43,8 +43,6 @@ class QuotesListFragment : Fragment() {
 
         bottomNavigation = activity?.findViewById(R.id.bottom_navigation)!!
 
-//        viewModel.loadQuotes()
-
         return binding.root
     }
 
