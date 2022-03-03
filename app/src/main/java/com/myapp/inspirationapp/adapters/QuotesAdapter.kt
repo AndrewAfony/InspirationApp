@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.myapp.inspirationapp.databinding.ItemQuoteBinding
 import com.myapp.inspirationapp.domain.model.Quote
+import com.myapp.inspirationapp.utils.toCategory
 
 class QuotesAdapter: RecyclerView.Adapter<QuotesAdapter.QuoteViewHolder>() {
 
@@ -36,7 +37,7 @@ class QuotesAdapter: RecyclerView.Adapter<QuotesAdapter.QuoteViewHolder>() {
         holder.binding.apply {
             quoteText.text = quote.content
             author.text = quote.author
-            tag.text = quote.tags[0]
+            tag.text = quote.tags[0].toCategory()
         }
     }
 
