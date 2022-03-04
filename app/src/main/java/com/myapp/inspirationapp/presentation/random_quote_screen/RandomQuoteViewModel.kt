@@ -1,10 +1,8 @@
 package com.myapp.inspirationapp.presentation.random_quote_screen
 
-import android.view.View
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.google.android.material.snackbar.Snackbar
 import com.myapp.inspirationapp.domain.model.Quote
 import com.myapp.inspirationapp.domain.repository.QuoteRepository
 import com.myapp.inspirationapp.utils.Resource

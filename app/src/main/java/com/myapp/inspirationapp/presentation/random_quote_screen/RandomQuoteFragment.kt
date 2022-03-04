@@ -25,11 +25,10 @@ class RandomQuoteFragment : Fragment() {
     ): View {
         _binding = FragmentRandomQuoteBinding.inflate(inflater, container, false)
 
-        viewModel.randomQuote.observe(viewLifecycleOwner, {
+        viewModel.randomQuote.observe(viewLifecycleOwner) {
             binding.quote.text = it.content
             binding.author.text = it.author
-        })
-
+        }
 
         return binding.root
 

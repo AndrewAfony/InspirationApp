@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name" translatable="false">InspirationApp</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="quote">Quote</string>
     <string name="quotes">Quotes</string>
     <string name="search">Search</string>
