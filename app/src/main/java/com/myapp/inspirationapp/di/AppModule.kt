@@ -1,6 +1,11 @@
 package com.myapp.inspirationapp.di
 
+import android.app.Application
+import androidx.room.Database
+import androidx.room.Room
+import androidx.room.RoomDatabase
 import com.myapp.inspirationapp.BuildConfig
+import com.myapp.inspirationapp.data.local.QuoteDatabase
 import com.myapp.inspirationapp.data.remote.QuotesApi
 import com.myapp.inspirationapp.data.repository.QuoteRepositoryImpl
 import com.myapp.inspirationapp.domain.repository.QuoteRepository
@@ -30,5 +35,15 @@ object AppModule {
     @Singleton
     fun provideQuoteRepository(api: QuotesApi): QuoteRepository {
         return QuoteRepositoryImpl(api)
+    }
+
+    @Provides
+    @Singleton
+    fun provideDatabase(context: Application): QuoteDatabase {
+        return Room.databaseBuilder(
+            context,
+            QuoteDatabase::class.java,
+            "quote_db"
+        ).build()
     }
 }
