@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.Flow
 interface QuoteDao {
 
     @Query("SELECT * FROM Quote")
-    fun getQuotes(): Flow<List<Quote>>
+    fun getFavoriteQuotes(): Flow<List<Quote>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addQuote(quote: Quote)

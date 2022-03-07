@@ -1,5 +1,6 @@
 package com.myapp.inspirationapp.data.repository
 
+import com.myapp.inspirationapp.data.local.QuoteDatabase
 import com.myapp.inspirationapp.data.remote.QuotesApi
 import com.myapp.inspirationapp.domain.model.Quote
 import com.myapp.inspirationapp.domain.model.QuotesList
@@ -12,7 +13,8 @@ import java.io.IOException
 import javax.inject.Inject
 
 class QuoteRepositoryImpl @Inject constructor(
-    private val api: QuotesApi
+    private val api: QuotesApi,
+    private val db: QuoteDatabase
 ): QuoteRepository {
 
     override suspend fun getRandomQuote(): Resource<Quote> {
@@ -39,5 +41,17 @@ class QuoteRepositoryImpl @Inject constructor(
         } catch (e: IOException) {
             emit(Resource.Error(message = e.localizedMessage ?: "Unknown error"))
         }
+    }
+
+    override fun getFavoriteQuotes(): Flow<List<Quote>> {
+        return db.dao.getFavoriteQuotes()
+    }
+
+    override suspend fun saveQuote(quote: Quote) {
+        db.dao.addQuote(quote)
+    }
+
+    override suspend fun deleteQuote(quote: Quote) {
+        db.dao.deleteQuote(quote)
     }
 }

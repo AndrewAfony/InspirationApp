@@ -33,8 +33,8 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideQuoteRepository(api: QuotesApi): QuoteRepository {
-        return QuoteRepositoryImpl(api)
+    fun provideQuoteRepository(api: QuotesApi, db: QuoteDatabase): QuoteRepository {
+        return QuoteRepositoryImpl(api, db)
     }
 
     @Provides
