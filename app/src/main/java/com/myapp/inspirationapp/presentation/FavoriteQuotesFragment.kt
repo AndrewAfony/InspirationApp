@@ -7,9 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.snackbar.Snackbar
 import com.myapp.inspirationapp.R
 import com.myapp.inspirationapp.adapters.QuotesAdapter
 import com.myapp.inspirationapp.databinding.FragmentFavoriteQuotesBinding
@@ -50,6 +52,32 @@ class FavoriteQuotesFragment : Fragment() {
                 quotesAdapter.differ.submitList(quotes)
             }
         }
+
+        val itemTouchHelper = object :ItemTouchHelper.SimpleCallback(
+            0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
+        ) {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                return false
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val position = viewHolder.bindingAdapterPosition
+                val quote = quotesAdapter.differ.currentList[position]
+
+                viewModel.deleteQuote(quote)
+
+                Snackbar.make(view, "Quote deleted", Snackbar.LENGTH_LONG)
+                    .setAction("Undo") {
+                        viewModel.saveQuote(quote)
+                    }
+                    .show()
+            }
+        }
+        ItemTouchHelper(itemTouchHelper).attachToRecyclerView(binding.rvFavorite)
     }
 
     private fun setupRecyclerView() {
