@@ -6,8 +6,7 @@ import androidx.activity.viewModels
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.myapp.inspirationapp.databinding.ActivityMainBinding
-import com.myapp.inspirationapp.presentation.quotes_list_screen.QuotesViewModel
-import com.myapp.inspirationapp.presentation.random_quote_screen.RandomQuoteViewModel
+import com.myapp.inspirationapp.presentation.QuotesViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -15,8 +14,7 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
 
-    private val randomQuoteViewModel: RandomQuoteViewModel by viewModels()
-    private val quotesList: QuotesViewModel by viewModels()
+    private val viewModel: QuotesViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +26,9 @@ class MainActivity : AppCompatActivity() {
 
         binding.bottomNavigation.setupWithNavController(navController)
 
-        randomQuoteViewModel.getQuote()
-        quotesList.loadQuotes()
+        viewModel.run {
+            getRandomQuote()
+            loadQuotes()
+        }
     }
 }

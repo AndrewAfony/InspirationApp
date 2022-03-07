@@ -5,13 +5,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.myapp.inspirationapp.R
 import com.myapp.inspirationapp.adapters.QuotesAdapter
 import com.myapp.inspirationapp.databinding.FragmentFavoriteQuotesBinding
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class FavoriteQuotesFragment : Fragment() {
 
     private var _binding: FragmentFavoriteQuotesBinding? = null
@@ -21,6 +27,7 @@ class FavoriteQuotesFragment : Fragment() {
 
     private lateinit var bottomNavigation: BottomNavigationView
 
+    private val viewModel: QuotesViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,10 +45,15 @@ class FavoriteQuotesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupRecyclerView()
 
+        lifecycleScope.launch {
+            viewModel.getSavedQuotes().collect { quotes ->
+                quotesAdapter.differ.submitList(quotes)
+            }
+        }
     }
 
     private fun setupRecyclerView() {
-        quotesAdapter = QuotesAdapter {  }
+        quotesAdapter = QuotesAdapter { _, _ -> }
         binding.rvFavorite.apply {
             adapter = quotesAdapter
             layoutManager = LinearLayoutManager(context)

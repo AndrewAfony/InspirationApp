@@ -10,7 +10,7 @@ import com.myapp.inspirationapp.databinding.ItemQuoteBinding
 import com.myapp.inspirationapp.domain.model.Quote
 import com.myapp.inspirationapp.utils.toCategory
 
-class QuotesAdapter(private val onClick: (View) -> Unit): RecyclerView.Adapter<QuotesAdapter.QuoteViewHolder>() {
+class QuotesAdapter(private val onClick: (View, Int) -> Unit): RecyclerView.Adapter<QuotesAdapter.QuoteViewHolder>() {
 
     inner class QuoteViewHolder(val binding: ItemQuoteBinding): RecyclerView.ViewHolder(binding.root)
 
@@ -41,7 +41,7 @@ class QuotesAdapter(private val onClick: (View) -> Unit): RecyclerView.Adapter<Q
             tag.text = quote.tags[0].toCategory()
 
             root.setOnLongClickListener {
-                onClick(it)
+                onClick(it, position)
                 true
             }
         }

@@ -10,7 +10,6 @@ import android.view.ViewGroup
 import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -18,6 +17,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.myapp.inspirationapp.R
 import com.myapp.inspirationapp.adapters.QuotesAdapter
 import com.myapp.inspirationapp.databinding.FragmentQuotesListBinding
+import com.myapp.inspirationapp.presentation.QuotesViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -70,8 +70,8 @@ class QuotesListFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        quotesAdapter = QuotesAdapter {
-            showPopupMenu(it.context, it)
+        quotesAdapter = QuotesAdapter { view, position ->
+            showPopupMenu(view.context, view, position)
         }
         binding.rvListQuotes.apply {
             adapter = quotesAdapter
@@ -93,13 +93,15 @@ class QuotesListFragment : Fragment() {
 
     }
 
-    private fun showPopupMenu(context: Context, view: View) {
+    private fun showPopupMenu(context: Context, view: View, position: Int) {
 
         PopupMenu(context, view).apply {
 
             setOnMenuItemClickListener {
                 return@setOnMenuItemClickListener when (it.itemId) {
                     R.id.save_to_favorite -> {
+                        val quote = quotesAdapter.differ.currentList[position]
+                        viewModel.saveQuote(quote)
                         Toast.makeText(context, "Saved", Toast.LENGTH_SHORT).show()
                         true
                     }

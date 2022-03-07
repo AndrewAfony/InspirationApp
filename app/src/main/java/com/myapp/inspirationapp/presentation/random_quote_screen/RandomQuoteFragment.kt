@@ -6,15 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
-import com.myapp.inspirationapp.R
 import com.myapp.inspirationapp.databinding.FragmentRandomQuoteBinding
+import com.myapp.inspirationapp.presentation.QuotesViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class RandomQuoteFragment : Fragment() {
 
-    private val viewModel: RandomQuoteViewModel by activityViewModels()
+    private val viewModel: QuotesViewModel by activityViewModels()
 
     private var _binding: FragmentRandomQuoteBinding? = null
     private val binding get() = _binding!!
