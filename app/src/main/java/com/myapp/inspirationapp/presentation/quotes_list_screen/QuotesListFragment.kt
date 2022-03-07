@@ -14,6 +14,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.snackbar.Snackbar
 import com.myapp.inspirationapp.R
 import com.myapp.inspirationapp.adapters.QuotesAdapter
 import com.myapp.inspirationapp.databinding.FragmentQuotesListBinding
@@ -102,7 +103,11 @@ class QuotesListFragment : Fragment() {
                     R.id.save_to_favorite -> {
                         val quote = quotesAdapter.differ.currentList[position]
                         viewModel.saveQuote(quote)
-                        Toast.makeText(context, "Saved", Toast.LENGTH_SHORT).show()
+                        Snackbar.make(binding.root, "Saved", Snackbar.LENGTH_LONG)
+                            .setAction("Undo") {
+                                viewModel.deleteQuote(quote)
+                            }
+                            .show()
                         true
                     }
                     R.id.share -> {
