@@ -6,8 +6,11 @@ import androidx.lifecycle.viewModelScope
 import com.myapp.inspirationapp.domain.model.Quote
 import com.myapp.inspirationapp.domain.repository.QuoteRepository
 import com.myapp.inspirationapp.presentation.quotes_list_screen.QuotesState
+import com.myapp.inspirationapp.presentation.search_quotes_screen.SearchedQuotesState
 import com.myapp.inspirationapp.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -20,7 +23,10 @@ class QuotesViewModel @Inject constructor(
 ): ViewModel() {
 
     var quotes = MutableStateFlow(QuotesState())
-    private set
+        private set
+
+    var searchedQuotes = MutableStateFlow(SearchedQuotesState())
+        private set
 
     var randomQuote = MutableLiveData<Quote>()
         private set
@@ -64,8 +70,36 @@ class QuotesViewModel @Inject constructor(
             }
         }
     }
+//
+    private var searchJob: Job? = null
+//    var searchQuery = MutableStateFlow("")
+//        private set
 
-    fun onSearch() {
+    fun onSearch(query: String) {
+//        searchQuery.value = query
+        searchJob?.cancel()
+        searchJob = viewModelScope.launch {
+            delay(500L)
+            repository.searchQuotes(query)
+                .onEach { result ->
+                    when(result) {
+                        is Resource.Success -> {
+                            searchedQuotes.value = searchedQuotes.value.copy(
+                                searchedQuotes = result.data,
+                                isLoading = false
+                            )
+                        }
+                        is Resource.Error -> {}
+                        is Resource.Loading -> {
+                            searchedQuotes.value = searchedQuotes.value.copy(
+                                searchedQuotes = result.data,
+                                isLoading = true
+                            )
+                        }
+                    }
+                }.launchIn(this)
+        }
+
 
     }
 

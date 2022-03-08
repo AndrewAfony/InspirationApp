@@ -45,15 +45,15 @@ class QuoteRepositoryImpl @Inject constructor(
 
     override suspend fun searchQuotes(query: String): Flow<Resource<QuotesList>> = flow {
 
-        emit(Resource.Loading())
+        emit(Resource.Loading<QuotesList>())
 
         try {
             val quotes = api.searchQuotes(query).toQuotesList()
-            emit(Resource.Success(data = quotes))
+            emit(Resource.Success<QuotesList>(data = quotes))
         } catch (e: HttpException) {
-            emit(Resource.Error(message = e.localizedMessage ?: "Unknown error"))
+            emit(Resource.Error<QuotesList>(message = e.localizedMessage ?: "Unknown error"))
         } catch (e: IOException) {
-            emit(Resource.Error(message = e.localizedMessage ?: "Unknown error"))
+            emit(Resource.Error<QuotesList>(message = e.localizedMessage ?: "Unknown error"))
         }
 
     }

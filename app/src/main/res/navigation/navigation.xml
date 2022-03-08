@@ -22,7 +22,7 @@
         tools:layout="@layout/fragment_favorite_quotes" />
     <fragment
         android:id="@+id/searchQuoteFragment"
-        android:name="com.myapp.inspirationapp.presentation.SearchQuoteFragment"
+        android:name="com.myapp.inspirationapp.presentation.search_quotes_screen.SearchQuoteFragment"
         android:label="fragment_search_quote"
         tools:layout="@layout/fragment_search_quote" />
 </navigation>

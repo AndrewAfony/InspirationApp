@@ -14,7 +14,7 @@ interface QuotesApi {
     suspend fun getQuotes(): QuotesListDto
 
     @GET("/search/quotes")
-    fun searchQuotes(
+    suspend fun searchQuotes(
         @Query("query") query: String
     ): QuotesListDto
 }
