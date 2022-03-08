@@ -43,6 +43,21 @@ class QuoteRepositoryImpl @Inject constructor(
         }
     }
 
+    override suspend fun searchQuotes(query: String): Flow<Resource<QuotesList>> = flow {
+
+        emit(Resource.Loading())
+
+        try {
+            val quotes = api.searchQuotes(query).toQuotesList()
+            emit(Resource.Success(data = quotes))
+        } catch (e: HttpException) {
+            emit(Resource.Error(message = e.localizedMessage ?: "Unknown error"))
+        } catch (e: IOException) {
+            emit(Resource.Error(message = e.localizedMessage ?: "Unknown error"))
+        }
+
+    }
+
     override fun getFavoriteQuotes(): Flow<List<Quote>> {
         return db.dao.getFavoriteQuotes()
     }

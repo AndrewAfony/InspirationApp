@@ -11,6 +11,8 @@ interface QuoteRepository {
 
     suspend fun getQuotes(): Flow<Resource<QuotesList>>
 
+    suspend fun searchQuotes(query: String): Flow<Resource<QuotesList>>
+
     fun getFavoriteQuotes(): Flow<List<Quote>>
 
     suspend fun saveQuote(quote: Quote)

@@ -65,6 +65,10 @@ class QuotesViewModel @Inject constructor(
         }
     }
 
+    fun onSearch() {
+
+    }
+
     fun getSavedQuotes() = repository.getFavoriteQuotes()
 
     fun saveQuote(quote: Quote) = viewModelScope.launch {
