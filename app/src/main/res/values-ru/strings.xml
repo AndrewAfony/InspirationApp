@@ -28,4 +28,5 @@
     <string name="random_quote">Случайная цитата</string>
     <string name="enter_quote_hint">Введите цитаты</string>
     <string name="favorite_quotes">Любимые цитаты</string>
+    <string name="create">Create</string>
 </resources>
