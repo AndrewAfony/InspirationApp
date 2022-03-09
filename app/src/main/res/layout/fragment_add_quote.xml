@@ -84,11 +84,14 @@
         app:layout_constraintTop_toBottomOf="@+id/select_tag">
 
         <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chip_group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:selectionRequired="true"
             app:singleSelection="true">
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/chip_business"
                 style="@style/Widget.MaterialComponents.Chip.Choice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -96,6 +99,7 @@
                 android:textAppearance="@style/chipText" />
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/chip_education"
                 style="@style/Widget.MaterialComponents.Chip.Choice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -103,6 +107,7 @@
                 android:textAppearance="@style/chipText" />
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/chip_faith"
                 style="@style/Widget.MaterialComponents.Chip.Choice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -110,6 +115,7 @@
                 android:textAppearance="@style/chipText" />
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/chip_famous"
                 style="@style/Widget.MaterialComponents.Chip.Choice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -117,6 +123,7 @@
                 android:textAppearance="@style/chipText" />
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/chip_friendship"
                 style="@style/Widget.MaterialComponents.Chip.Choice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -124,6 +131,7 @@
                 android:textAppearance="@style/chipText" />
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/chip_future"
                 style="@style/Widget.MaterialComponents.Chip.Choice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -131,6 +139,7 @@
                 android:textAppearance="@style/chipText" />
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/chip_happiness"
                 style="@style/Widget.MaterialComponents.Chip.Choice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -138,6 +147,7 @@
                 android:textAppearance="@style/chipText" />
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/chip_history"
                 style="@style/Widget.MaterialComponents.Chip.Choice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -145,6 +155,7 @@
                 android:textAppearance="@style/chipText" />
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/chip_inspirational"
                 style="@style/Widget.MaterialComponents.Chip.Choice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -152,6 +163,7 @@
                 android:textAppearance="@style/chipText" />
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/chip_life"
                 style="@style/Widget.MaterialComponents.Chip.Choice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -159,6 +171,7 @@
                 android:textAppearance="@style/chipText" />
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/chip_literature"
                 style="@style/Widget.MaterialComponents.Chip.Choice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -166,6 +179,7 @@
                 android:textAppearance="@style/chipText" />
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/chip_love"
                 style="@style/Widget.MaterialComponents.Chip.Choice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -173,6 +187,7 @@
                 android:textAppearance="@style/chipText" />
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/chip_nature"
                 style="@style/Widget.MaterialComponents.Chip.Choice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -180,6 +195,7 @@
                 android:textAppearance="@style/chipText" />
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/chip_politics"
                 style="@style/Widget.MaterialComponents.Chip.Choice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -187,6 +203,7 @@
                 android:textAppearance="@style/chipText" />
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/chip_proverb"
                 style="@style/Widget.MaterialComponents.Chip.Choice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -194,6 +211,7 @@
                 android:textAppearance="@style/chipText" />
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/chip_religion"
                 style="@style/Widget.MaterialComponents.Chip.Choice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -201,6 +219,7 @@
                 android:textAppearance="@style/chipText" />
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/chip_science"
                 style="@style/Widget.MaterialComponents.Chip.Choice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -208,6 +227,7 @@
                 android:textAppearance="@style/chipText" />
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/chip_success"
                 style="@style/Widget.MaterialComponents.Chip.Choice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -215,6 +235,7 @@
                 android:textAppearance="@style/chipText" />
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/chip_technology"
                 style="@style/Widget.MaterialComponents.Chip.Choice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -222,6 +243,7 @@
                 android:textAppearance="@style/chipText" />
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/chip_wisdom"
                 style="@style/Widget.MaterialComponents.Chip.Choice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -233,7 +255,7 @@
     </HorizontalScrollView>
 
     <Button
-        android:id="@+id/create_quote"
+        android:id="@+id/button_create_quote"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
