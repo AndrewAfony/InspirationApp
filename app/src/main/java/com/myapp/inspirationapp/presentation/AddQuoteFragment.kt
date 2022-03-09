@@ -45,7 +45,6 @@ class AddQuoteFragment : Fragment() {
 
         binding.toolbar.setNavigationOnClickListener {
             view.findNavController().navigateUp()
-            bottomNav.visibility = View.VISIBLE
         }
 
         binding.buttonCreateQuote.setOnClickListener {

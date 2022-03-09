@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -84,6 +85,12 @@ class FavoriteQuotesFragment : Fragment() {
             }
         }
         ItemTouchHelper(itemTouchHelper).attachToRecyclerView(binding.rvFavorite)
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        if(!bottomNavigation.isVisible) bottomNavigation.visibility = View.VISIBLE
     }
 
     private fun setupRecyclerView() {
