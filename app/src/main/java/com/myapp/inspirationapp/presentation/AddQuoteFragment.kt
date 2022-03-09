@@ -82,9 +82,13 @@ class AddQuoteFragment : Fragment() {
             )
 
             viewModel.saveQuote(quote)
-            binding.customQuote.text.clear()
-            binding.customAuthor.text.clear()
-            binding.chipGroup.clearCheck()
+
+            binding.apply {
+                customQuote.text.clear()
+                customAuthor.text.clear()
+                chipGroup.clearCheck()
+            }
+
             Snackbar.make(view, "Quote added", Snackbar.LENGTH_SHORT).show()
         }
     }
