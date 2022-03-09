@@ -28,4 +28,6 @@
     <string name="random_quote">Random quote</string>
     <string name="enter_quote_hint">Enter quote</string>
     <string name="favorite_quotes">Favorite quotes</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

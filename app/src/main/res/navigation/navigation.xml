@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation.xml"
-    app:startDestination="@id/randomQuoteFragment">
+    app:startDestination="@id/addQuoteFragment">
 
     <fragment
         android:id="@+id/randomQuoteFragment"
@@ -25,4 +25,9 @@
         android:name="com.myapp.inspirationapp.presentation.search_quotes_screen.SearchQuoteFragment"
         android:label="fragment_search_quote"
         tools:layout="@layout/fragment_search_quote" />
+    <fragment
+        android:id="@+id/addQuoteFragment"
+        android:name="com.myapp.inspirationapp.presentation.AddQuoteFragment"
+        android:label="fragment_add_quote"
+        tools:layout="@layout/fragment_add_quote" />
 </navigation>
