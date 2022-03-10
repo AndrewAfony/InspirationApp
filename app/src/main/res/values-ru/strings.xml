@@ -26,7 +26,10 @@
     <string name="wisdom_chip">Мудрость</string>
     <string name="account_button">Аккаунт</string>
     <string name="random_quote">Случайная цитата</string>
-    <string name="enter_quote_hint">Введите цитаты</string>
+    <string name="enter_quote_hint">Введите цитату</string>
     <string name="favorite_quotes">Любимые цитаты</string>
-    <string name="create">Create</string>
+    <string name="create">Создать</string>
+    <string name="create_quote">Создать цитату</string>
+    <string name="enter_author">Введите автора</string>
+    <string name="select_tag">Выберите тег:</string>
 </resources>
