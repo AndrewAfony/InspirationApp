@@ -20,7 +20,7 @@ class QuoteRepositoryImpl @Inject constructor(
     override suspend fun getRandomQuote(): Resource<Quote> {
 
         return try {
-            val quote = api.getRandomQuote().toRandomQuote()
+            val quote = api.getRandomQuote().toQuote()
             Resource.Success(data = quote)
         } catch (e: HttpException) {
             Resource.Error(message = e.localizedMessage ?: "Unknown error")

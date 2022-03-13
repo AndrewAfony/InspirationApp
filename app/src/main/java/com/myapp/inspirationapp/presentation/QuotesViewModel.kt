@@ -1,5 +1,6 @@
 package com.myapp.inspirationapp.presentation
 
+import android.app.Application
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -19,6 +20,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class QuotesViewModel @Inject constructor(
+    application: Application,
     private val repository: QuoteRepository
 ): ViewModel() {
 
@@ -70,13 +72,10 @@ class QuotesViewModel @Inject constructor(
             }
         }
     }
-//
+
     private var searchJob: Job? = null
-//    var searchQuery = MutableStateFlow("")
-//        private set
 
     fun onSearch(query: String) {
-//        searchQuery.value = query
         searchJob?.cancel()
         searchJob = viewModelScope.launch {
             delay(500L)

@@ -12,5 +12,5 @@ data class RandomQuoteDto(
     val length: Int,
     val tags: List<String>
 ) {
-    fun toRandomQuote(): Quote = Quote(_id ,author, content, tags)
+    fun toQuote(): Quote = Quote(_id ,author, content, tags)
 }

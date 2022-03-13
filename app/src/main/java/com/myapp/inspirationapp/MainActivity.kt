@@ -27,8 +27,9 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigation.setupWithNavController(navController)
 
         viewModel.run {
-            getRandomQuote()
             loadQuotes()
+            getRandomQuote()
         }
+
     }
 }
