@@ -10,6 +10,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.myapp.inspirationapp.databinding.FragmentRandomQuoteBinding
 import com.myapp.inspirationapp.presentation.QuotesViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.*
 
 @AndroidEntryPoint
 class RandomQuoteFragment : Fragment() {
@@ -32,8 +33,10 @@ class RandomQuoteFragment : Fragment() {
 
         binding.buttonLike.setOnClickListener {
             viewModel.randomQuote.value?.let { quote ->
-                viewModel.saveQuote(quote)
+                val quoteToSave = quote.copy(_id = UUID.randomUUID().toString())
+                viewModel.saveQuote(quoteToSave)
             }
+
             Snackbar.make(it, "Saved", Snackbar.LENGTH_LONG)
                 .setAction("Undo") {
                     viewModel.randomQuote.value?.let { quote ->
