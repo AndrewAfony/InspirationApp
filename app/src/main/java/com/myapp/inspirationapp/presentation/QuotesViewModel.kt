@@ -50,7 +50,7 @@ class QuotesViewModel @Inject constructor(
 
             workInfo.collect { info ->
                 if(info.state == WorkInfo.State.SUCCEEDED) {
-                    val quote = repository.getQuoteById(Constants.workerQuoteId)
+                    val quote = repository.getQuoteById(Constants.randomWorkerQuoteId)
                     randomQuote.postValue(quote)
                 } else {
                     Log.d(TAG, "Current state: ${info.state}")
