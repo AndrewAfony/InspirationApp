@@ -12,4 +12,5 @@
     <color name="blue">#1984D8</color>
     <color name="bg_randomQuote">#fccf7c</color>
     <color name="gray">#656565</color>
+    <color name="splash_background">#DFDFDF</color>
 </resources>

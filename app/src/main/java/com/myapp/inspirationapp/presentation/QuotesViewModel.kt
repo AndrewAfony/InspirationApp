@@ -34,6 +34,8 @@ class QuotesViewModel @Inject constructor(
     private val workManager = WorkManager.getInstance(context)
     private val workInfo: Flow<WorkInfo> = workManager.getWorkInfosByTagLiveData("random_quote_work").asFlow().map { it[0] }
 
+    var isLoading: Boolean = true
+
     var quotes = MutableStateFlow(QuotesState())
         private set
 
@@ -52,6 +54,9 @@ class QuotesViewModel @Inject constructor(
                 if(info.state == WorkInfo.State.SUCCEEDED) {
                     val quote = repository.getQuoteById(Constants.randomWorkerQuoteId)
                     randomQuote.postValue(quote)
+                    isLoading = false
+                } else if (info.state == WorkInfo.State.RUNNING || info.state == WorkInfo.State.ENQUEUED){
+                    isLoading = true
                 } else {
                     Log.d(TAG, "Current state: ${info.state}")
                     Log.d(TAG, "Error: ${info.outputData.getString("error")}")
@@ -59,10 +64,6 @@ class QuotesViewModel @Inject constructor(
             }
 
         }
-    }
-
-    fun testButton() {
-
     }
 
     fun loadQuotes() {

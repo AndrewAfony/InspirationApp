@@ -43,10 +43,6 @@ class RandomQuoteFragment : Fragment() {
                 .show()
         }
 
-        binding.buttonShare.setOnClickListener {
-            viewModel.testButton()
-        }
-
         return binding.root
 
     }
