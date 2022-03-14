@@ -58,6 +58,10 @@ class QuoteRepositoryImpl @Inject constructor(
 
     }
 
+    override suspend fun getQuoteById(id: String): Quote? {
+        return db.dao.getQuoteById(id)
+    }
+
     override fun getFavoriteQuotes(): Flow<List<Quote>> {
         return db.dao.getFavoriteQuotes()
     }

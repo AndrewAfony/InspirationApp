@@ -15,6 +15,8 @@ interface QuoteRepository {
 
     fun getFavoriteQuotes(): Flow<List<Quote>>
 
+    suspend fun getQuoteById(id: String): Quote?
+
     suspend fun saveQuote(quote: Quote)
 
     suspend fun deleteQuote(quote: Quote)

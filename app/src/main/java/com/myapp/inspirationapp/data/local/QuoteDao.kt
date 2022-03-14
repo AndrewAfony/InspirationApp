@@ -10,6 +10,9 @@ interface QuoteDao {
     @Query("SELECT * FROM Quote")
     fun getFavoriteQuotes(): Flow<List<Quote>>
 
+    @Query("SELECT * FROM Quote WHERE _id LIKE :id")
+    suspend fun getQuoteById(id: String): Quote?
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addQuote(quote: Quote)
 

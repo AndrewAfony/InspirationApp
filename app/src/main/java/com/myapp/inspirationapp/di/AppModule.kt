@@ -9,6 +9,7 @@ import com.myapp.inspirationapp.data.local.QuoteDatabase
 import com.myapp.inspirationapp.data.remote.QuotesApi
 import com.myapp.inspirationapp.data.repository.QuoteRepositoryImpl
 import com.myapp.inspirationapp.domain.repository.QuoteRepository
+import com.myapp.inspirationapp.workers.WorkersDependencies
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -45,5 +46,14 @@ object AppModule {
             QuoteDatabase::class.java,
             "quote_db"
         ).build()
+    }
+
+    @Provides
+    @Singleton
+    fun provideWorkerDependency(api: QuotesApi, db: QuoteDatabase): WorkersDependencies {
+        return WorkersDependencies(
+            api = api,
+            db = db
+        )
     }
 }

@@ -1,28 +1,38 @@
 package com.myapp.inspirationapp.presentation
 
-import android.app.Application
+import android.content.Context
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asFlow
 import androidx.lifecycle.viewModelScope
+import androidx.work.*
 import com.myapp.inspirationapp.domain.model.Quote
 import com.myapp.inspirationapp.domain.repository.QuoteRepository
 import com.myapp.inspirationapp.presentation.quotes_list_screen.QuotesState
 import com.myapp.inspirationapp.presentation.search_quotes_screen.SearchedQuotesState
+import com.myapp.inspirationapp.utils.Constants
 import com.myapp.inspirationapp.utils.Resource
+import com.myapp.inspirationapp.workers.RandomQuoteWorker
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
+
+private const val TAG = "ViewModel"
 
 @HiltViewModel
 class QuotesViewModel @Inject constructor(
-    application: Application,
+    @ApplicationContext context: Context,
     private val repository: QuoteRepository
 ): ViewModel() {
+
+    private val workManager = WorkManager.getInstance(context)
+    private val workInfo: Flow<WorkInfo> = workManager.getWorkInfosByTagLiveData("random_quote_work").asFlow().map { it[0] }
 
     var quotes = MutableStateFlow(QuotesState())
         private set
@@ -30,8 +40,30 @@ class QuotesViewModel @Inject constructor(
     var searchedQuotes = MutableStateFlow(SearchedQuotesState())
         private set
 
-    var randomQuote = MutableLiveData<Quote>()
+    var randomQuote = MutableLiveData<Quote?>()
         private set
+
+    init {
+        loadRandomQuote()
+
+        viewModelScope.launch {
+
+            workInfo.collect { info ->
+                if(info.state == WorkInfo.State.SUCCEEDED) {
+                    val quote = repository.getQuoteById(Constants.workerQuoteId)
+                    randomQuote.postValue(quote)
+                } else {
+                    Log.d(TAG, "Current state: ${info.state}")
+                    Log.d(TAG, "Error: ${info.outputData.getString("error")}")
+                }
+            }
+
+        }
+    }
+
+    fun testButton() {
+
+    }
 
     fun loadQuotes() {
         viewModelScope.launch {
@@ -110,6 +142,23 @@ class QuotesViewModel @Inject constructor(
 
     fun deleteQuote(quote: Quote) = viewModelScope.launch {
         repository.deleteQuote(quote)
+    }
+
+    private fun loadRandomQuote() {
+
+        val request = PeriodicWorkRequestBuilder<RandomQuoteWorker>(1, TimeUnit.HOURS)
+            .addTag("random_quote_work")
+            .setConstraints(
+                Constraints.Builder()
+                    .setRequiredNetworkType(NetworkType.CONNECTED).build()
+            )
+            .build()
+
+        workManager.enqueueUniquePeriodicWork(
+            Constants.uniqueRandomQuoteWork,
+            ExistingPeriodicWorkPolicy.KEEP,
+            request
+        )
     }
 
 }
