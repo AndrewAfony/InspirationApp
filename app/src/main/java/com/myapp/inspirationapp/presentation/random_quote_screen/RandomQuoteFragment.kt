@@ -1,5 +1,6 @@
 package com.myapp.inspirationapp.presentation.random_quote_screen
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -44,6 +45,19 @@ class RandomQuoteFragment : Fragment() {
                     }
                 }
                 .show()
+        }
+
+        binding.buttonShare.setOnClickListener {
+
+            val intent = Intent().apply {
+                action = Intent.ACTION_SEND
+                putExtra(Intent.EXTRA_TEXT, viewModel.randomQuote.value?.content)
+                type = "text/plain"
+            }
+
+            val shareIntent = Intent.createChooser(intent, null)
+            startActivity(shareIntent)
+
         }
 
         return binding.root
