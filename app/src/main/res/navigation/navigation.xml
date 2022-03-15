@@ -14,14 +14,18 @@
         android:id="@+id/quotesListFragment"
         android:name="com.myapp.inspirationapp.presentation.quotes_list_screen.QuotesListFragment"
         android:label="fragment_quotes_list"
-        tools:layout="@layout/fragment_quotes_list" />
+        tools:layout="@layout/fragment_quotes_list" >
+        <action
+            android:id="@+id/action_change_quote_from_list"
+            app:destination="@id/addQuoteFragment" />
+    </fragment>
     <fragment
         android:id="@+id/favoriteQuotesFragment"
         android:name="com.myapp.inspirationapp.presentation.FavoriteQuotesFragment"
         android:label="fragment_favorite_quotes"
         tools:layout="@layout/fragment_favorite_quotes" >
         <action
-            android:id="@+id/action_favoriteQuotesFragment_to_addQuoteFragment"
+            android:id="@+id/action_change_quote_from_favorite"
             app:destination="@id/addQuoteFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
@@ -32,10 +36,19 @@
         android:id="@+id/searchQuoteFragment"
         android:name="com.myapp.inspirationapp.presentation.search_quotes_screen.SearchQuoteFragment"
         android:label="fragment_search_quote"
-        tools:layout="@layout/fragment_search_quote" />
+        tools:layout="@layout/fragment_search_quote" >
+        <action
+            android:id="@+id/action_change_quote_from_search"
+            app:destination="@id/addQuoteFragment" />
+    </fragment>
     <fragment
         android:id="@+id/addQuoteFragment"
         android:name="com.myapp.inspirationapp.presentation.AddQuoteFragment"
         android:label="fragment_add_quote"
-        tools:layout="@layout/fragment_add_quote" />
+        tools:layout="@layout/fragment_add_quote" >
+        <argument
+            android:name="quoteId"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
 </navigation>

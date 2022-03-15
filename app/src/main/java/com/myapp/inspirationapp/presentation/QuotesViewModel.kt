@@ -42,7 +42,9 @@ class QuotesViewModel @Inject constructor(
 
     var randomQuote = MutableLiveData<Quote?>()
         private set
-    var randomQuoteIsLoading: Boolean = true
+
+    var changableQuote = MutableLiveData<Quote?>()
+        private set
 
     var showSplashScreen = true
 
@@ -150,6 +152,13 @@ class QuotesViewModel @Inject constructor(
 
     fun deleteQuote(quote: Quote) = viewModelScope.launch {
         repository.deleteQuote(quote)
+    }
+
+    fun getQuoteById(id: String) {
+        viewModelScope.launch {
+            val quote = repository.getQuoteById(id)
+            changableQuote.postValue(quote)
+        }
     }
 
     private fun loadRandomQuote() {

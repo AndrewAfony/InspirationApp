@@ -53,7 +53,8 @@ class FavoriteQuotesFragment : Fragment() {
         setupRecyclerView()
 
         binding.buttonAddQuote.setOnClickListener {
-            view.findNavController().navigate(R.id.action_favoriteQuotesFragment_to_addQuoteFragment)
+            val action = FavoriteQuotesFragmentDirections.actionChangeQuoteFromFavorite(null)
+            view.findNavController().navigate(action)
         }
 
         lifecycleScope.launch {
@@ -98,11 +99,13 @@ class FavoriteQuotesFragment : Fragment() {
     private fun setupRecyclerView() {
         quotesAdapter = QuotesAdapter(
             isFavorite = true,
-            onFavoriteClick = { quote ->
-                viewModel.saveQuote(quote)
-            },
+            onFavoriteClick = {},
             onShareClick = { text ->
                 shareQuote(requireContext(), text)
+            },
+            onQuoteClick = {
+                val action = FavoriteQuotesFragmentDirections.actionChangeQuoteFromFavorite(it)
+                view?.findNavController()?.navigate(action)
             }
         )
         binding.rvFavorite.apply {

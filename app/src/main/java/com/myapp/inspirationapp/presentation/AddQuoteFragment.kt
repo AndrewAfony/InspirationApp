@@ -1,13 +1,16 @@
 package com.myapp.inspirationapp.presentation
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.children
+import androidx.core.view.forEach
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.navArgs
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.chip.Chip
 import com.google.android.material.snackbar.Snackbar
@@ -17,8 +20,12 @@ import com.myapp.inspirationapp.domain.model.Quote
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 
+private const val TAG = "add_quote_fragment"
+
 @AndroidEntryPoint
 class AddQuoteFragment : Fragment() {
+
+    private val args: AddQuoteFragmentArgs by navArgs()
 
     private var _binding: FragmentAddQuoteBinding? = null
     private val binding get() = _binding!!
@@ -35,6 +42,22 @@ class AddQuoteFragment : Fragment() {
         _binding = FragmentAddQuoteBinding.inflate(inflater, container, false)
 
         bottomNav = activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)!!
+
+        args.quoteId?.let { quoteId ->
+
+            viewModel.getQuoteById(quoteId)
+
+            viewModel.changableQuote.observe(viewLifecycleOwner) {
+                binding.apply {
+                    customQuote.setText(it?.content)
+                    customAuthor.setText(it?.author)
+                    if(it?.tags?.get(0)?.contains("famous") == true) chipGroup.check(R.id.chip_famous)
+                }
+
+                Log.d(TAG, "chip name: ${it?.tags?.get(0)}")
+            }
+            binding.buttonCreateQuote.text = "Save"
+        }
 
         return binding.root
     }

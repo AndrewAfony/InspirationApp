@@ -13,6 +13,7 @@ import com.myapp.inspirationapp.R
 import com.myapp.inspirationapp.databinding.FavoriteItemQuoteBinding
 import com.myapp.inspirationapp.databinding.ItemQuoteBinding
 import com.myapp.inspirationapp.domain.model.Quote
+import com.myapp.inspirationapp.presentation.FavoriteQuotesFragmentDirections
 import com.myapp.inspirationapp.utils.toCategory
 
 private const val QUOTE = 0
@@ -21,7 +22,8 @@ private const val FAVORITE_QUOTE = 1
 class QuotesAdapter(
     private val isFavorite: Boolean = false,
     private val onFavoriteClick: (Quote) -> Unit,
-    private val onShareClick: (String) -> Unit
+    private val onShareClick: (String) -> Unit,
+    private val onQuoteClick: (String) -> Unit = {}
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     inner class QuoteViewHolder(val binding: ItemQuoteBinding): RecyclerView.ViewHolder(binding.root)
@@ -86,6 +88,11 @@ class QuotesAdapter(
                     buttonShare.setOnClickListener {
                         onShareClick(quote.content)
                     }
+
+                    root.setOnLongClickListener {
+                        onQuoteClick(quote._id)
+                        true
+                    }
                 }
             }
             FAVORITE_QUOTE -> {
@@ -93,11 +100,18 @@ class QuotesAdapter(
                     quoteText.text = quote.content
                     author.text = quote.author
                     tag.text = quote.tags[0].toCategory()
-                }
 
+                    buttonShare.setOnClickListener {
+                        onShareClick(quote.content)
+                    }
+
+                    root.setOnLongClickListener {
+                        onQuoteClick(quote._id)
+                        true
+                    }
+                }
             }
         }
-
     }
 
     override fun getItemCount(): Int {

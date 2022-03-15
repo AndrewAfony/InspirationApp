@@ -11,6 +11,7 @@ import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -18,6 +19,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.myapp.inspirationapp.R
 import com.myapp.inspirationapp.adapters.QuotesAdapter
 import com.myapp.inspirationapp.databinding.FragmentQuotesListBinding
+import com.myapp.inspirationapp.presentation.FavoriteQuotesFragmentDirections
 import com.myapp.inspirationapp.presentation.QuotesViewModel
 import com.myapp.inspirationapp.utils.shareQuote
 import dagger.hilt.android.AndroidEntryPoint
@@ -63,7 +65,6 @@ class QuotesListFragment : Fragment() {
                 }
             }
         }
-
     }
 
     override fun onDestroyView() {
@@ -78,6 +79,10 @@ class QuotesListFragment : Fragment() {
             },
             onShareClick = { text ->
                 shareQuote(requireContext(), text)
+            },
+            onQuoteClick = {
+                val action = QuotesListFragmentDirections.actionChangeQuoteFromList(it)
+                view?.findNavController()?.navigate(action)
             }
         )
         binding.rvListQuotes.apply {

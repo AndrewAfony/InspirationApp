@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">InspirationApp</string>
+    <string name="app_name" translatable="false">Inspiration</string>
     <string name="quote">Quote</string>
     <string name="quotes">Quotes</string>
     <string name="search">Search</string>

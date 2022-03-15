@@ -11,11 +11,13 @@ import android.widget.PopupMenu
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.myapp.inspirationapp.R
 import com.myapp.inspirationapp.adapters.QuotesAdapter
 import com.myapp.inspirationapp.databinding.FragmentSearchQuoteBinding
+import com.myapp.inspirationapp.presentation.FavoriteQuotesFragmentDirections
 import com.myapp.inspirationapp.presentation.QuotesViewModel
 import com.myapp.inspirationapp.utils.shareQuote
 import dagger.hilt.android.AndroidEntryPoint
@@ -66,6 +68,10 @@ class SearchQuoteFragment : Fragment() {
             },
             onShareClick = { text ->
                 shareQuote(requireContext(), text)
+            },
+            onQuoteClick = {
+                val action = SearchQuoteFragmentDirections.actionChangeQuoteFromSearch(it)
+                view?.findNavController()?.navigate(action)
             }
         )
         binding.rvSearchedQuotes.apply {
