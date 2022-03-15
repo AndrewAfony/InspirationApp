@@ -1,11 +1,15 @@
 package com.myapp.inspirationapp.adapters
 
+import android.graphics.Color
+import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.graphics.drawable.DrawableCompat
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.myapp.inspirationapp.R
 import com.myapp.inspirationapp.databinding.FavoriteItemQuoteBinding
 import com.myapp.inspirationapp.databinding.ItemQuoteBinding
 import com.myapp.inspirationapp.domain.model.Quote
@@ -16,7 +20,8 @@ private const val FAVORITE_QUOTE = 1
 
 class QuotesAdapter(
     private val isFavorite: Boolean = false,
-    private val onClick: (View, Int) -> Unit
+    private val onFavoriteClick: (Quote) -> Unit,
+    private val onShareClick: (String) -> Unit
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     inner class QuoteViewHolder(val binding: ItemQuoteBinding): RecyclerView.ViewHolder(binding.root)
@@ -75,9 +80,11 @@ class QuotesAdapter(
                     author.text = quote.author
                     tag.text = quote.tags[0].toCategory()
 
-                    root.setOnLongClickListener {
-                        onClick(it, position)
-                        true
+                    buttonLike.setOnClickListener {
+                        onFavoriteClick(quote)
+                    }
+                    buttonShare.setOnClickListener {
+                        onShareClick(quote.content)
                     }
                 }
             }

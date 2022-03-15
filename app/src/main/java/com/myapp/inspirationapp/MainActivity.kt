@@ -2,16 +2,13 @@ package com.myapp.inspirationapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.window.SplashScreen
 import androidx.activity.viewModels
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.myapp.inspirationapp.databinding.ActivityMainBinding
 import com.myapp.inspirationapp.presentation.QuotesViewModel
-import com.myapp.inspirationapp.utils.makeNotification
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -25,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
         installSplashScreen().apply {
             setKeepOnScreenCondition {
-                viewModel.isLoading
+                viewModel.showSplashScreen
             }
         }
 

@@ -34,8 +34,6 @@ class QuotesViewModel @Inject constructor(
     private val workManager = WorkManager.getInstance(context)
     private val workInfo: Flow<WorkInfo> = workManager.getWorkInfosByTagLiveData("random_quote_work").asFlow().map { it[0] }
 
-    var isLoading: Boolean = true
-
     var quotes = MutableStateFlow(QuotesState())
         private set
 
@@ -44,6 +42,9 @@ class QuotesViewModel @Inject constructor(
 
     var randomQuote = MutableLiveData<Quote?>()
         private set
+    var randomQuoteIsLoading: Boolean = true
+
+    var showSplashScreen = true
 
     init {
         loadRandomQuote()
@@ -54,16 +55,21 @@ class QuotesViewModel @Inject constructor(
                 if(info.state == WorkInfo.State.SUCCEEDED) {
                     val quote = repository.getQuoteById(Constants.RANDOM_WORKER_QUOTE_ID)
                     randomQuote.postValue(quote)
-                    delay(1000L)
-                    isLoading = false
                 } else if (info.state == WorkInfo.State.RUNNING || info.state == WorkInfo.State.ENQUEUED){
-                    isLoading = true
+                    val quote = repository.getQuoteById(Constants.RANDOM_WORKER_QUOTE_ID)
+                    randomQuote.postValue(quote)
+                    Log.d(TAG, "Current state: ${info.state}")
                 } else {
                     Log.d(TAG, "Current state: ${info.state}")
                     Log.d(TAG, "Error: ${info.outputData.getString("error")}")
                 }
             }
 
+        }
+
+        viewModelScope.launch {
+            delay(1000L)
+            showSplashScreen = false
         }
     }
 
@@ -148,7 +154,7 @@ class QuotesViewModel @Inject constructor(
 
     private fun loadRandomQuote() {
 
-        val request = PeriodicWorkRequestBuilder<RandomQuoteWorker>(6, TimeUnit.HOURS)
+        val request = PeriodicWorkRequestBuilder<RandomQuoteWorker>(15, TimeUnit.MINUTES)
             .addTag("random_quote_work")
             .setConstraints(
                 Constraints.Builder()

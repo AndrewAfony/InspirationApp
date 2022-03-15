@@ -19,6 +19,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.myapp.inspirationapp.R
 import com.myapp.inspirationapp.adapters.QuotesAdapter
 import com.myapp.inspirationapp.databinding.FragmentFavoriteQuotesBinding
+import com.myapp.inspirationapp.utils.shareQuote
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -95,7 +96,15 @@ class FavoriteQuotesFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        quotesAdapter = QuotesAdapter(true) { _, _ -> }
+        quotesAdapter = QuotesAdapter(
+            isFavorite = true,
+            onFavoriteClick = { quote ->
+                viewModel.saveQuote(quote)
+            },
+            onShareClick = { text ->
+                shareQuote(requireContext(), text)
+            }
+        )
         binding.rvFavorite.apply {
             adapter = quotesAdapter
             layoutManager = LinearLayoutManager(context)

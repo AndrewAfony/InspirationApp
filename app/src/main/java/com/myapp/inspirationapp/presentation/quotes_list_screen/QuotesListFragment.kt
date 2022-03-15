@@ -19,6 +19,7 @@ import com.myapp.inspirationapp.R
 import com.myapp.inspirationapp.adapters.QuotesAdapter
 import com.myapp.inspirationapp.databinding.FragmentQuotesListBinding
 import com.myapp.inspirationapp.presentation.QuotesViewModel
+import com.myapp.inspirationapp.utils.shareQuote
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -71,9 +72,14 @@ class QuotesListFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        quotesAdapter = QuotesAdapter { view, position ->
-            showPopupMenu(view.context, view, position)
-        }
+        quotesAdapter = QuotesAdapter(
+            onFavoriteClick = { quote ->
+                viewModel.saveQuote(quote)
+            },
+            onShareClick = { text ->
+                shareQuote(requireContext(), text)
+            }
+        )
         binding.rvListQuotes.apply {
             adapter = quotesAdapter
             layoutManager = LinearLayoutManager(activity)

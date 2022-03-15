@@ -10,7 +10,7 @@ import androidx.fragment.app.activityViewModels
 import com.google.android.material.snackbar.Snackbar
 import com.myapp.inspirationapp.databinding.FragmentRandomQuoteBinding
 import com.myapp.inspirationapp.presentation.QuotesViewModel
-import com.myapp.inspirationapp.utils.makeNotification
+import com.myapp.inspirationapp.utils.shareQuote
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 
@@ -49,16 +49,7 @@ class RandomQuoteFragment : Fragment() {
         }
 
         binding.buttonShare.setOnClickListener {
-
-            val intent = Intent().apply {
-                action = Intent.ACTION_SEND
-                putExtra(Intent.EXTRA_TEXT, viewModel.randomQuote.value?.content)
-                type = "text/plain"
-            }
-
-            val shareIntent = Intent.createChooser(intent, null)
-            startActivity(shareIntent)
-
+            shareQuote(requireContext(), viewModel.randomQuote.value?.content)
         }
 
         return binding.root
