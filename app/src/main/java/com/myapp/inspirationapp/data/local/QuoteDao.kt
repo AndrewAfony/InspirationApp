@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.Flow
 interface QuoteDao {
 
     @Query("SELECT * FROM Quote WHERE _id NOT LIKE :id")
-    fun getFavoriteQuotes(id: String = Constants.randomWorkerQuoteId): Flow<List<Quote>>
+    fun getFavoriteQuotes(id: String = Constants.RANDOM_WORKER_QUOTE_ID): Flow<List<Quote>>
 
     @Query("SELECT * FROM Quote WHERE _id LIKE :id")
     suspend fun getQuoteById(id: String): Quote?

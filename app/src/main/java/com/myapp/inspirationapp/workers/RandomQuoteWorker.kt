@@ -10,6 +10,7 @@ import com.myapp.inspirationapp.BuildConfig
 import com.myapp.inspirationapp.data.local.QuoteDatabase
 import com.myapp.inspirationapp.data.remote.QuotesApi
 import com.myapp.inspirationapp.utils.Constants
+import com.myapp.inspirationapp.utils.makeNotification
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
 import retrofit2.HttpException
@@ -28,9 +29,13 @@ class RandomQuoteWorker @AssistedInject constructor(
 
         return try {
 
+            val appContext = applicationContext
+
             val result = dependency.api.getRandomQuote().toRandomQuote()
 
             dependency.db.dao.addQuote(result)
+
+            makeNotification("Get your inspiration", appContext)
 
             Result.success()
 

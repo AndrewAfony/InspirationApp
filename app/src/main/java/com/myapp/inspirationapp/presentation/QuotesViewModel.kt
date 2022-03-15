@@ -52,8 +52,9 @@ class QuotesViewModel @Inject constructor(
 
             workInfo.collect { info ->
                 if(info.state == WorkInfo.State.SUCCEEDED) {
-                    val quote = repository.getQuoteById(Constants.randomWorkerQuoteId)
+                    val quote = repository.getQuoteById(Constants.RANDOM_WORKER_QUOTE_ID)
                     randomQuote.postValue(quote)
+                    delay(1000L)
                     isLoading = false
                 } else if (info.state == WorkInfo.State.RUNNING || info.state == WorkInfo.State.ENQUEUED){
                     isLoading = true
@@ -147,7 +148,7 @@ class QuotesViewModel @Inject constructor(
 
     private fun loadRandomQuote() {
 
-        val request = PeriodicWorkRequestBuilder<RandomQuoteWorker>(1, TimeUnit.HOURS)
+        val request = PeriodicWorkRequestBuilder<RandomQuoteWorker>(6, TimeUnit.HOURS)
             .addTag("random_quote_work")
             .setConstraints(
                 Constraints.Builder()
@@ -156,7 +157,7 @@ class QuotesViewModel @Inject constructor(
             .build()
 
         workManager.enqueueUniquePeriodicWork(
-            Constants.uniqueRandomQuoteWork,
+            Constants.UNIQUE_RANDOM_QUOTE_WORK,
             ExistingPeriodicWorkPolicy.KEEP,
             request
         )
