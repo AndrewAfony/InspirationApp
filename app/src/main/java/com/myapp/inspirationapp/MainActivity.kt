@@ -9,6 +9,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.myapp.inspirationapp.databinding.ActivityMainBinding
 import com.myapp.inspirationapp.presentation.QuotesViewModel
+import com.myapp.inspirationapp.utils.makeNotification
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 
@@ -40,5 +41,10 @@ class MainActivity : AppCompatActivity() {
             loadQuotes()
         }
 
+    }
+
+    override fun onStart() {
+        super.onStart()
+        makeNotification("Test", applicationContext)
     }
 }

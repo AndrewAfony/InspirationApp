@@ -10,6 +10,7 @@ import androidx.fragment.app.activityViewModels
 import com.google.android.material.snackbar.Snackbar
 import com.myapp.inspirationapp.databinding.FragmentRandomQuoteBinding
 import com.myapp.inspirationapp.presentation.QuotesViewModel
+import com.myapp.inspirationapp.utils.makeNotification
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 
