@@ -42,9 +42,4 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
-
-    override fun onStart() {
-        super.onStart()
-        makeNotification("Test", applicationContext)
-    }
 }

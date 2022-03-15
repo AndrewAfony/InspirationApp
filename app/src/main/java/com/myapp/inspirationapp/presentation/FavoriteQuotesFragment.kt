@@ -95,7 +95,7 @@ class FavoriteQuotesFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        quotesAdapter = QuotesAdapter { _, _ -> }
+        quotesAdapter = QuotesAdapter(true) { _, _ -> }
         binding.rvFavorite.apply {
             adapter = quotesAdapter
             layoutManager = LinearLayoutManager(context)
