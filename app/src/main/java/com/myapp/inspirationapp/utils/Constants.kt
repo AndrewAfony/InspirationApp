@@ -4,8 +4,7 @@ object Constants {
 
     const val RANDOM_WORKER_QUOTE_ID = "random_quote"
     const val UNIQUE_RANDOM_QUOTE_WORK = "unique_random_quote_work"
-
-
+    const val TIME_INTERVAL: Long = 6
 
     // Notification
 

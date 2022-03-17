@@ -163,7 +163,7 @@ class QuotesViewModel @Inject constructor(
 
     private fun loadRandomQuote() {
 
-        val request = PeriodicWorkRequestBuilder<RandomQuoteWorker>(15, TimeUnit.MINUTES)
+        val request = PeriodicWorkRequestBuilder<RandomQuoteWorker>(repeatInterval = Constants.TIME_INTERVAL, TimeUnit.HOURS)
             .addTag("random_quote_work")
             .setConstraints(
                 Constraints.Builder()
