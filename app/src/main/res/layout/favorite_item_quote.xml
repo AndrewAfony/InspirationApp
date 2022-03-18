@@ -12,7 +12,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/quote_text"
+            android:id="@+id/favorite_quote"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -32,9 +32,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Author"
-            app:layout_constraintEnd_toEndOf="@+id/quote_text"
-            app:layout_constraintStart_toStartOf="@+id/quote_text"
-            app:layout_constraintTop_toBottomOf="@+id/quote_text" />
+            app:layout_constraintEnd_toEndOf="@+id/favorite_quote"
+            app:layout_constraintStart_toStartOf="@+id/favorite_quote"
+            app:layout_constraintTop_toBottomOf="@+id/favorite_quote" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/tag"

@@ -97,7 +97,7 @@ class QuotesAdapter(
             }
             FAVORITE_QUOTE -> {
                 (holder as FavoriteQuoteViewHolder).binding.apply {
-                    quoteText.text = quote.content
+                    favoriteQuote.text = quote.content
                     author.text = quote.author
                     tag.text = quote.tags[0].toCategory()
 

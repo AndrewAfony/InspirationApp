@@ -11,20 +11,20 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:layout_marginTop="8dp"
-        app:navigationIcon="@drawable/ic_menu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_menu">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@string/random_quote"
             android:fontFamily="@font/architects"
             android:letterSpacing="0.2"
-            android:textSize="16sp"
+            android:text="@string/random_quote"
             android:textColor="@color/black"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <ImageButton
@@ -32,66 +32,170 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:src="@drawable/ic_user_hand_drawn"
             android:backgroundTint="@android:color/transparent"
-            android:contentDescription="@string/account_button" />
+            android:contentDescription="@string/account_button"
+            android:src="@drawable/ic_user_hand_drawn" />
 
     </com.google.android.material.appbar.MaterialToolbar>
 
-    <TextView
-        android:id="@+id/quote"
-        style="@style/quoteText"
-        android:layout_width="0dp"
+    <!--    <TextView-->
+    <!--        android:id="@+id/quote"-->
+    <!--        style="@style/quoteText"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="48dp"-->
+    <!--        android:layout_marginEnd="48dp"-->
+    <!--        android:letterSpacing="0.05"-->
+    <!--        android:textAlignment="center"-->
+    <!--        app:layout_constraintBottom_toTopOf="@+id/button_like"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/toolbar"-->
+    <!--        app:layout_constraintVertical_bias="0.4"-->
+    <!--        tools:text="Nam at nisi sit amet mi lobortis vulputate. Suspendisse condimentum consequat risus non varius." />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/author"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="16dp"-->
+    <!--        android:letterSpacing="0.07"-->
+    <!--        android:textColor="@color/gray"-->
+    <!--        android:textSize="16sp"-->
+    <!--        android:textStyle="bold"-->
+    <!--        app:layout_constraintEnd_toEndOf="@+id/quote"-->
+    <!--        app:layout_constraintStart_toStartOf="@+id/quote"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/quote"-->
+    <!--        tools:text="- F.T.Burnam" />-->
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginEnd="48dp"
-        android:letterSpacing="0.05"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/button_like"
+        android:layout_margin="8dp"
+        app:cardCornerRadius="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.4"
-        tools:text="Nam at nisi sit amet mi lobortis vulputate. Suspendisse condimentum consequat risus non varius." />
+        app:layout_constraintVertical_bias="0.51">
 
-    <TextView
-        android:id="@+id/author"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:letterSpacing="0.07"
-        android:textColor="@color/gray"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/quote"
-        app:layout_constraintStart_toStartOf="@+id/quote"
-        app:layout_constraintTop_toBottomOf="@+id/quote"
-        tools:text="- F.T.Burnam" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <ImageButton
-        android:id="@+id/button_like"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:src="@drawable/ic_hand_drawn_heart"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button_share"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.8"
-        app:tint="@color/red" />
+            <TextView
+                android:id="@+id/quote"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.32" />
 
-    <ImageButton
-        android:id="@+id/button_share"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:src="@drawable/ic_hand_drawn_arrow"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button_like"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.8"
-        app:tint="@color/blue" />
+            <TextView
+                android:id="@+id/author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Author"
+                app:layout_constraintEnd_toEndOf="@+id/quote"
+                app:layout_constraintStart_toStartOf="@+id/quote"
+                app:layout_constraintTop_toBottomOf="@+id/quote" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/tag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/author" />
+
+            <ImageButton
+                android:id="@+id/button_like"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_heart"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/button_share"
+                app:layout_constraintHorizontal_bias="0.1"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/author" />
+
+            <ImageButton
+                android:id="@+id/button_share"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_share"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/button_save"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/button_like"
+                app:layout_constraintTop_toBottomOf="@+id/author" />
+
+            <ImageButton
+                android:id="@+id/button_save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="8dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_download"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tag"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/button_share"
+                app:layout_constraintTop_toBottomOf="@+id/author" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!--    <ImageButton-->
+    <!--        android:id="@+id/button_like"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:background="@android:color/transparent"-->
+    <!--        android:src="@drawable/ic_hand_drawn_heart"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toStartOf="@+id/button_share"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/toolbar"-->
+    <!--        app:layout_constraintVertical_bias="0.8"-->
+    <!--        app:tint="@color/red" />-->
+
+    <!--    <ImageButton-->
+    <!--        android:id="@+id/button_share"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:background="@android:color/transparent"-->
+    <!--        android:src="@drawable/ic_hand_drawn_arrow"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toEndOf="@+id/button_like"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/toolbar"-->
+    <!--        app:layout_constraintVertical_bias="0.8"-->
+    <!--        app:tint="@color/blue" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
