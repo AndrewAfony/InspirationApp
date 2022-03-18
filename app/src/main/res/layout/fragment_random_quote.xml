@@ -70,10 +70,11 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_margin="8dp"
+        android:layout_marginTop="24dp"
         app:cardCornerRadius="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
@@ -91,19 +92,20 @@
                 android:layout_marginEnd="8dp"
                 android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="14sp"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.32" />
+                tools:text="@string/test_quote" />
 
             <TextView
                 android:id="@+id/author"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Author"
+                android:text="@string/author"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@+id/quote"
                 app:layout_constraintStart_toStartOf="@+id/quote"
                 app:layout_constraintTop_toBottomOf="@+id/quote" />
@@ -112,65 +114,64 @@
                 android:id="@+id/tag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/author" />
+                app:layout_constraintEnd_toEndOf="parent" />
 
             <ImageButton
                 android:id="@+id/button_like"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="24dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="16dp"
                 android:background="@android:color/transparent"
                 android:src="@drawable/ic_heart"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/button_share"
                 app:layout_constraintHorizontal_bias="0.1"
                 app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/author" />
+                app:layout_constraintStart_toStartOf="parent" />
 
             <ImageButton
                 android:id="@+id/button_share"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="24dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="16dp"
                 android:background="@android:color/transparent"
                 android:src="@drawable/ic_share"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/button_save"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/button_like"
-                app:layout_constraintTop_toBottomOf="@+id/author" />
+                app:layout_constraintStart_toEndOf="@+id/button_like" />
 
             <ImageButton
                 android:id="@+id/button_save"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="16dp"
                 android:background="@android:color/transparent"
                 android:src="@drawable/ic_download"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/tag"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/button_share"
-                app:layout_constraintTop_toBottomOf="@+id/author" />
+                app:layout_constraintStart_toEndOf="@+id/button_share" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.7" />
 
     <!--    <ImageButton-->
     <!--        android:id="@+id/button_like"-->
