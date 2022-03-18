@@ -30,6 +30,7 @@ class RandomQuoteFragment : Fragment() {
         _binding = FragmentRandomQuoteBinding.inflate(inflater, container, false)
 
         viewModel.randomQuote.observe(viewLifecycleOwner) {
+
             binding.quote.text = it?.content
             binding.author.text = it?.author
             binding.tag.text = it?.tags?.get(0)?.toCategory()
@@ -39,15 +40,13 @@ class RandomQuoteFragment : Fragment() {
             viewModel.randomQuote.value?.let { quote ->
                 val quoteToSave = quote.copy(_id = UUID.randomUUID().toString())
                 viewModel.saveQuote(quoteToSave)
-            }
 
-            Snackbar.make(it, "Saved", Snackbar.LENGTH_LONG)
-                .setAction("Undo") {
-                    viewModel.randomQuote.value?.let { quote ->
-                        viewModel.deleteQuote(quote)
+                Snackbar.make(it, "Saved", Snackbar.LENGTH_LONG)
+                    .setAction("Undo") {
+                        viewModel.deleteQuote(quoteToSave)
                     }
-                }
-                .show()
+                    .show()
+            }
         }
 
         binding.buttonShare.setOnClickListener {
