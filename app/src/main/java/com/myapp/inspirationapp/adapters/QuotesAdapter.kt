@@ -1,19 +1,13 @@
 package com.myapp.inspirationapp.adapters
 
-import android.graphics.Color
-import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.core.graphics.drawable.DrawableCompat
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.myapp.inspirationapp.R
 import com.myapp.inspirationapp.databinding.FavoriteItemQuoteBinding
 import com.myapp.inspirationapp.databinding.ItemQuoteBinding
 import com.myapp.inspirationapp.domain.model.Quote
-import com.myapp.inspirationapp.presentation.FavoriteQuotesFragmentDirections
 import com.myapp.inspirationapp.utils.toCategory
 
 private const val QUOTE = 0

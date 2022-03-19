@@ -2,12 +2,10 @@ package com.myapp.inspirationapp.presentation
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.children
-import androidx.core.view.forEach
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
@@ -72,8 +70,8 @@ class AddQuoteFragment : Fragment() {
 
         binding.buttonCreateQuote.setOnClickListener {
 
-            var quoteText: String = ""
-            var author: String = ""
+            var quoteText = ""
+            var author = ""
             val tag: MutableList<String> = mutableListOf()
 
             if(binding.customQuote.text.toString().isBlank()) {

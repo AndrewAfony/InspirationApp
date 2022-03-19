@@ -57,6 +57,7 @@
         android:src="@drawable/ic_add"
         app:borderWidth="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="@string/add_quote_button_description" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

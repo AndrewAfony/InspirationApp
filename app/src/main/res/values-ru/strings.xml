@@ -33,4 +33,7 @@
     <string name="enter_author">Введите автора</string>
     <string name="select_tag">Выберите тег:</string>
     <string name="author">Author</string>
+    <string name="share_button_description">Share button</string>
+    <string name="download_button_description">Download button</string>
+    <string name="add_quote_button_description">Add quote button</string>
 </resources>

@@ -1,9 +1,7 @@
 package com.myapp.inspirationapp.di
 
 import android.app.Application
-import androidx.room.Database
 import androidx.room.Room
-import androidx.room.RoomDatabase
 import com.myapp.inspirationapp.BuildConfig
 import com.myapp.inspirationapp.data.local.QuoteDatabase
 import com.myapp.inspirationapp.data.remote.QuotesApi

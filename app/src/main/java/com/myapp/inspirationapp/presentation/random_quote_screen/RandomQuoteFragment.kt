@@ -1,6 +1,5 @@
 package com.myapp.inspirationapp.presentation.random_quote_screen
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View

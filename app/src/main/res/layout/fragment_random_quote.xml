@@ -132,7 +132,8 @@
                 app:layout_constraintEnd_toStartOf="@+id/button_share"
                 app:layout_constraintHorizontal_bias="0.1"
                 app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                android:contentDescription="@string/like_button_description" />
 
             <ImageButton
                 android:id="@+id/button_share"
@@ -146,7 +147,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/button_save"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/button_like" />
+                app:layout_constraintStart_toEndOf="@+id/button_like"
+                android:contentDescription="@string/share_button_description" />
 
             <ImageButton
                 android:id="@+id/button_save"
@@ -159,7 +161,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/tag"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/button_share" />
+                app:layout_constraintStart_toEndOf="@+id/button_share"
+                android:contentDescription="@string/download_button_description" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
