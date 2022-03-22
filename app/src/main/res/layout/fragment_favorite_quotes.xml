@@ -47,17 +47,61 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/extendedFloatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="70dp"
+        android:text="Actions"
+        app:icon="@drawable/ic_add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/button_delete_all_quotes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/white"
+        android:contentDescription="@string/add_quote_button_description"
+        android:src="@drawable/ic_add"
+        app:borderWidth="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/extendedFloatingActionButton"
+        app:layout_constraintEnd_toEndOf="@+id/extendedFloatingActionButton"
+        app:layout_constraintStart_toStartOf="@+id/extendedFloatingActionButton" />
+
+    <TextView
+        android:id="@+id/add_quote_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="Add quote"
+        app:layout_constraintBottom_toBottomOf="@+id/button_add_quote"
+        app:layout_constraintEnd_toStartOf="@+id/button_add_quote"
+        app:layout_constraintTop_toTopOf="@+id/button_add_quote" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/button_add_quote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="@color/white"
+        android:contentDescription="@string/add_quote_button_description"
         android:src="@drawable/ic_add"
         app:borderWidth="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:contentDescription="@string/add_quote_button_description" />
+        app:layout_constraintBottom_toTopOf="@+id/button_delete_all_quotes"
+        app:layout_constraintEnd_toEndOf="@+id/button_delete_all_quotes"
+        app:layout_constraintStart_toStartOf="@+id/button_delete_all_quotes" />
+
+    <TextView
+        android:id="@+id/delete_all_quotes_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="Delete all quotes"
+        app:layout_constraintBottom_toBottomOf="@+id/button_delete_all_quotes"
+        app:layout_constraintEnd_toStartOf="@+id/button_delete_all_quotes"
+        app:layout_constraintTop_toTopOf="@+id/button_delete_all_quotes" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

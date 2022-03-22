@@ -43,6 +43,12 @@ class FavoriteQuotesFragment : Fragment() {
 
         bottomNavigation = activity?.findViewById(R.id.bottom_navigation)!!
 
+        showButtons(false)
+
+        binding.extendedFloatingActionButton.setOnClickListener {
+            showButtons(true)
+        }
+
         return binding.root
     }
 
@@ -129,6 +135,29 @@ class FavoriteQuotesFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun showButtons(show: Boolean) {
+
+        if(!show) {
+            binding.apply {
+                extendedFloatingActionButton.shrink()
+                buttonAddQuote.hide()
+                buttonDeleteAllQuotes.hide()
+                addQuoteText.visibility = View.GONE
+                deleteAllQuotesText.visibility = View.GONE
+            }
+        } else {
+            binding.apply {
+                extendedFloatingActionButton.extend()
+                buttonAddQuote.show()
+                buttonDeleteAllQuotes.show()
+                addQuoteText.visibility = View.VISIBLE
+                deleteAllQuotesText.visibility = View.VISIBLE
+            }
+        }
+
+
     }
 
 }
