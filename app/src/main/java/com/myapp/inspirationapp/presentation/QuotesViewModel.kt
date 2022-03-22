@@ -161,6 +161,12 @@ class QuotesViewModel @Inject constructor(
         }
     }
 
+    fun deleteAllQuotes() {
+        viewModelScope.launch {
+            repository.deleteAllQuotes()
+        }
+    }
+
     private fun loadRandomQuote() {
 
         val request = PeriodicWorkRequestBuilder<RandomQuoteWorker>(repeatInterval = Constants.TIME_INTERVAL, TimeUnit.HOURS)

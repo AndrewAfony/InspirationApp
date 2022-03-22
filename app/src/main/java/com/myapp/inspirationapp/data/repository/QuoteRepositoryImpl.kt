@@ -73,4 +73,8 @@ class QuoteRepositoryImpl @Inject constructor(
     override suspend fun deleteQuote(quote: Quote) {
         db.dao.deleteQuote(quote)
     }
+
+    override suspend fun deleteAllQuotes() {
+        db.dao.deleteAllQuotes()
+    }
 }

@@ -1,9 +1,11 @@
-package com.myapp.inspirationapp.presentation
+package com.myapp.inspirationapp.presentation.favorite_quotes_screen
 
+import android.app.ProgressDialog.show
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -17,6 +19,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.myapp.inspirationapp.R
 import com.myapp.inspirationapp.adapters.QuotesAdapter
 import com.myapp.inspirationapp.databinding.FragmentFavoriteQuotesBinding
+import com.myapp.inspirationapp.presentation.QuotesViewModel
 import com.myapp.inspirationapp.utils.shareQuote
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
@@ -45,6 +48,16 @@ class FavoriteQuotesFragment : Fragment() {
 
         bottomNavigation = activity?.findViewById(R.id.bottom_navigation)!!
 
+        binding.buttonDeleteAllQuotes.setOnClickListener {
+            DeleteAllQuotesDialog(
+                deleteQuotes = {
+                    viewModel.deleteAllQuotes()
+                }
+            ).show(
+                childFragmentManager, "Delete Quotes Dialog"
+            )
+        }
+
         showButtons()
 
         binding.extendedFloatingActionButton.setOnClickListener {
@@ -59,7 +72,10 @@ class FavoriteQuotesFragment : Fragment() {
         setupRecyclerView()
 
         binding.buttonAddQuote.setOnClickListener {
-            val action = FavoriteQuotesFragmentDirections.actionChangeQuoteFromFavorite(null)
+            val action =
+                FavoriteQuotesFragmentDirections.actionChangeQuoteFromFavorite(
+                    null
+                )
             view.findNavController().navigate(action)
         }
 
@@ -110,7 +126,10 @@ class FavoriteQuotesFragment : Fragment() {
                 shareQuote(requireContext(), text)
             },
             onQuoteClick = {
-                val action = FavoriteQuotesFragmentDirections.actionChangeQuoteFromFavorite(it)
+                val action =
+                    FavoriteQuotesFragmentDirections.actionChangeQuoteFromFavorite(
+                        it
+                    )
                 view?.findNavController()?.navigate(action)
             }
         )

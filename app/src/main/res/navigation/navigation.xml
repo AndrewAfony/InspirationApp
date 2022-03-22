@@ -21,7 +21,7 @@
     </fragment>
     <fragment
         android:id="@+id/favoriteQuotesFragment"
-        android:name="com.myapp.inspirationapp.presentation.FavoriteQuotesFragment"
+        android:name="com.myapp.inspirationapp.presentation.favorite_quotes_screen.FavoriteQuotesFragment"
         android:label="fragment_favorite_quotes"
         tools:layout="@layout/fragment_favorite_quotes" >
         <action

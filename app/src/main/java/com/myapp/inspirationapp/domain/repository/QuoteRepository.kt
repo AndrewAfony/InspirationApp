@@ -20,4 +20,6 @@ interface QuoteRepository {
     suspend fun saveQuote(quote: Quote)
 
     suspend fun deleteQuote(quote: Quote)
+
+    suspend fun deleteAllQuotes()
 }
