@@ -38,4 +38,5 @@
     <string name="download_button_description">Download button</string>
     <string name="add_quote_button_description">Add quote button</string>
     <string name="like_button_description">Like button</string>
+    <string name="delete_quotes_button_description">Delete all quotes</string>
 </resources>
