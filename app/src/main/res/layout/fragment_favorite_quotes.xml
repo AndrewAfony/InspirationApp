@@ -54,6 +54,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="70dp"
         android:text="Actions"
+        android:backgroundTint="@color/white"
         app:icon="@drawable/ic_add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -69,6 +70,7 @@
         app:borderWidth="0dp"
         app:layout_constraintBottom_toTopOf="@+id/extendedFloatingActionButton"
         app:layout_constraintEnd_toEndOf="@+id/extendedFloatingActionButton"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/extendedFloatingActionButton" />
 
     <TextView

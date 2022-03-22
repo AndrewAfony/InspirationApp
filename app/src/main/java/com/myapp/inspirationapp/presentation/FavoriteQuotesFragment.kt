@@ -34,6 +34,8 @@ class FavoriteQuotesFragment : Fragment() {
 
     private val viewModel: QuotesViewModel by activityViewModels()
 
+    private var showButtons: Boolean = false
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -43,10 +45,10 @@ class FavoriteQuotesFragment : Fragment() {
 
         bottomNavigation = activity?.findViewById(R.id.bottom_navigation)!!
 
-        showButtons(false)
+        showButtons()
 
         binding.extendedFloatingActionButton.setOnClickListener {
-            showButtons(true)
+            showButtons()
         }
 
         return binding.root
@@ -137,15 +139,17 @@ class FavoriteQuotesFragment : Fragment() {
         _binding = null
     }
 
-    private fun showButtons(show: Boolean) {
+    private fun showButtons() {
 
-        if(!show) {
+        if(!showButtons) {
             binding.apply {
                 extendedFloatingActionButton.shrink()
                 buttonAddQuote.hide()
                 buttonDeleteAllQuotes.hide()
                 addQuoteText.visibility = View.GONE
                 deleteAllQuotesText.visibility = View.GONE
+
+                showButtons = true
             }
         } else {
             binding.apply {
@@ -154,10 +158,9 @@ class FavoriteQuotesFragment : Fragment() {
                 buttonDeleteAllQuotes.show()
                 addQuoteText.visibility = View.VISIBLE
                 deleteAllQuotesText.visibility = View.VISIBLE
+
+                showButtons = false
             }
         }
-
-
     }
-
 }
