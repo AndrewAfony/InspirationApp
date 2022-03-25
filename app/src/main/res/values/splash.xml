@@ -2,7 +2,7 @@
 <resources>
     <style name="Theme.App.Starting" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/splash_background</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_bookmark_splash</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_star</item>
         <item name="postSplashScreenTheme">@style/Theme.InspirationApp</item>
     </style>
 </resources>
