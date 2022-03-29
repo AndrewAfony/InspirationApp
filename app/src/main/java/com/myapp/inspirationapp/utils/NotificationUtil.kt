@@ -37,7 +37,7 @@ fun makeNotification(message: String, context: Context) {
     }
 
     val builder = NotificationCompat.Builder(context, Constants.CHANNEL_ID)
-        .setSmallIcon(R.drawable.ic_bookmark)
+        .setSmallIcon(R.drawable.ic_star)
         .setContentTitle(Constants.NOTIFICATION_TITLE)
         .setContentText(message)
         .setPriority(NotificationCompat.PRIORITY_HIGH)
