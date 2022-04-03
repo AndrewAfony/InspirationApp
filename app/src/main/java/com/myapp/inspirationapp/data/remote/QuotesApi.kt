@@ -2,6 +2,7 @@ package com.myapp.inspirationapp.data.remote
 
 import com.myapp.inspirationapp.data.remote.dto.QuotesListDto
 import com.myapp.inspirationapp.data.remote.dto.RandomQuoteDto
+import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.Query
 

@@ -66,7 +66,6 @@ class QuotesViewModel @Inject constructor(
                     Log.d(TAG, "Error: ${info.outputData.getString("error")}")
                 }
             }
-
         }
 
         viewModelScope.launch {
